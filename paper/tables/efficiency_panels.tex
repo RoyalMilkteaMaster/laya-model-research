@@ -1,0 +1,47 @@
+\begin{tabular}{|l|l|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|r|}
+\hline
+\multicolumn{2}{|c|}{} & \multicolumn{6}{c|}{Panel A: HotpotQA} & \multicolumn{6}{c|}{Panel B: 2Wiki} & \multicolumn{6}{c|}{Panel C: MuSiQue} \\
+\cline{3-20}
+Model & Condition & p50 & VRAM & In & Out & Hops & Laya & p50 & VRAM & In & Out & Hops & Laya & p50 & VRAM & In & Out & Hops & Laya \\
+\hline
+27B & Recall+LLM & 7965 & 24461 & 1995 & 499 & 2.63 & --- & 7882 & 24215 & 2101 & 290 & 3.00 & --- & 9771 & 24390 & 2500 & 595 & 3.19 & --- \\ % model=qwen3.5:27b condition=recall_llm datasets=hotpotqa,2wiki,musique
+\cline{2-20}
+ & RAG+LLM & 11918 & 24429 & 3000 & 151 & 2.75 & --- & 11044 & 24357 & 5490 & 136 & 3.19 & --- & 16217 & 24106 & 4736 & 271 & 3.55 & --- \\ % model=qwen3.5:27b condition=rag_llm datasets=hotpotqa,2wiki,musique
+\cline{2-20}
+ & Recall+Laya & 17279 & 24366 & 1586 & 482 & 2.98 & 1261.4 & 13780 & 23526 & 1544 & 317 & 3.15 & 706.3 & 18126 & 24330 & 1667 & 439 & 3.18 & 840.2 \\ % model=qwen3.5:27b condition=recall_laya datasets=hotpotqa,2wiki,musique
+\cline{2-20}
+ & RAG+Laya & 13482 & 24428 & 1606 & 68 & 2.57 & 595.3 & 11490 & 23647 & 2293 & 64 & 2.54 & 377.6 & 13170 & 24328 & 2187 & 76 & 2.81 & 361.3 \\ % model=qwen3.5:27b condition=rag_laya datasets=hotpotqa,2wiki,musique
+\hline
+9B & Recall+LLM & 2605 & 21657 & 1856 & 309 & 2.56 & --- & 2745 & 22092 & 1907 & 228 & 2.82 & --- & 3000 & 21884 & 2096 & 353 & 2.95 & --- \\ % model=qwen3.5:9b condition=recall_llm datasets=hotpotqa,2wiki,musique
+\cline{2-20}
+ & RAG+LLM & 2022 & 21655 & 2939 & 104 & 2.67 & --- & 3256 & 22409 & 5385 & 121 & 3.21 & --- & 3028 & 21884 & 4628 & 177 & 3.52 & --- \\ % model=qwen3.5:9b condition=rag_llm datasets=hotpotqa,2wiki,musique
+\cline{2-20}
+ & Recall+Laya & 2676 & 21832 & 1509 & 344 & 3.02 & 19.1 & 2501 & 21919 & 1440 & 212 & 3.07 & 20.1 & 2770 & 21885 & 1579 & 243 & 3.20 & 19.7 \\ % model=qwen3.5:9b condition=recall_laya datasets=hotpotqa,2wiki,musique
+\cline{2-20}
+ & RAG+Laya & 1570 & 22285 & 1675 & 71 & 2.62 & 16.3 & 1763 & 21871 & 2329 & 64 & 2.55 & 16.3 & 1731 & 22581 & 2324 & 80 & 2.89 & 17.0 \\ % model=qwen3.5:9b condition=rag_laya datasets=hotpotqa,2wiki,musique
+\hline
+4B & Recall+LLM & 1843 & 19063 & 1934 & 476 & 2.55 & --- & 1642 & 19117 & 1700 & 254 & 2.42 & --- & 2960 & 19110 & 2461 & 414 & 3.08 & --- \\ % model=qwen3.5:4b condition=recall_llm datasets=hotpotqa,2wiki,musique
+\cline{2-20}
+ & RAG+LLM & 1961 & 19113 & 3445 & 122 & 3.06 & --- & 2851 & 19116 & 6001 & 130 & 3.42 & --- & 2791 & 19110 & 5018 & 146 & 3.75 & --- \\ % model=qwen3.5:4b condition=rag_llm datasets=hotpotqa,2wiki,musique
+\cline{2-20}
+ & Recall+Laya & 2221 & 19170 & 1569 & 509 & 2.92 & 18.6 & 2096 & 19111 & 1491 & 306 & 2.99 & 18.2 & 2445 & 19110 & 1734 & 321 & 3.15 & 18.4 \\ % model=qwen3.5:4b condition=recall_laya datasets=hotpotqa,2wiki,musique
+\cline{2-20}
+ & RAG+Laya & 1095 & 19116 & 1565 & 68 & 2.52 & 16.1 & 1452 & 19109 & 2280 & 73 & 2.53 & 16.0 & 1408 & 19108 & 2255 & 80 & 2.88 & 16.5 \\ % model=qwen3.5:4b condition=rag_laya datasets=hotpotqa,2wiki,musique
+\hline
+2B & Recall+LLM & 2733 & 15975 & 3196 & 526 & 3.79 & --- & 2724 & 17123 & 3183 & 501 & 3.88 & --- & 2826 & 17628 & 3363 & 491 & 3.98 & --- \\ % model=qwen3.5:2b condition=recall_llm datasets=hotpotqa,2wiki,musique
+\cline{2-20}
+ & RAG+LLM & 1880 & 15977 & 4202 & 166 & 3.98 & --- & 2723 & 17124 & 6067 & 157 & 4.00 & --- & 1818 & 17776 & 4275 & 156 & 4.00 & --- \\ % model=qwen3.5:2b condition=rag_llm datasets=hotpotqa,2wiki,musique
+\cline{2-20}
+ & Recall+Laya & 1277 & 15979 & 1287 & 315 & 2.67 & 16.8 & 1335 & 17223 & 1325 & 234 & 2.75 & 18.0 & 1494 & 17976 & 1699 & 290 & 3.10 & 18.3 \\ % model=qwen3.5:2b condition=recall_laya datasets=hotpotqa,2wiki,musique
+\cline{2-20}
+ & RAG+Laya & 657 & 16810 & 1578 & 73 & 2.51 & 17.0 & 859 & 17324 & 1885 & 59 & 2.36 & 16.6 & 963 & 18077 & 2325 & 93 & 2.94 & 16.4 \\ % model=qwen3.5:2b condition=rag_laya datasets=hotpotqa,2wiki,musique
+\hline
+0.8B & Recall+LLM & 1565 & 10227 & 2191 & 279 & 3.04 & --- & 1443 & 14272 & 2044 & 262 & 2.90 & --- & 1464 & 14250 & 1978 & 263 & 2.75 & --- \\ % model=qwen3.5:0.8b condition=recall_llm datasets=hotpotqa,2wiki,musique
+\cline{2-20}
+ & RAG+LLM & 1669 & 14306 & 2961 & 143 & 3.17 & --- & 1947 & 14271 & 3459 & 125 & 2.83 & --- & 1476 & 14251 & 2776 & 139 & 2.89 & --- \\ % model=qwen3.5:0.8b condition=rag_llm datasets=hotpotqa,2wiki,musique
+\cline{2-20}
+ & Recall+Laya & 828 & 14323 & 1345 & 192 & 2.75 & 20.8 & 712 & 14256 & 1124 & 167 & 2.62 & 17.4 & 741 & 14249 & 1328 & 193 & 2.73 & 17.2 \\ % model=qwen3.5:0.8b condition=recall_laya datasets=hotpotqa,2wiki,musique
+\cline{2-20}
+ & RAG+Laya & 553 & 14296 & 1875 & 81 & 2.65 & 17.2 & 753 & 14250 & 1903 & 61 & 2.37 & 16.8 & 532 & 14249 & 1954 & 86 & 2.69 & 17.5 \\ % model=qwen3.5:0.8b condition=rag_laya datasets=hotpotqa,2wiki,musique
+\hline
+\end{tabular}

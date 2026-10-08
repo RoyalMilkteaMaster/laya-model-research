@@ -1,0 +1,44 @@
+{
+  "schema_version": "2",
+  "generator": {
+    "module": "multihop_benchmark.datasets.multihop_dataset_loader",
+    "version": "1"
+  },
+  "dataset": "2wiki",
+  "seed": 42,
+  "created_at": "2026-09-29T17:22:00Z",
+  "source": {
+    "repo": "framolfese/2WikiMultihopQA",
+    "config": "default",
+    "splits": {
+      "validation": {
+        "rows": 12576
+      },
+      "train": {
+        "rows": 167454
+      }
+    }
+  },
+  "files": {
+    "sample_200.jsonl": {
+      "sha256": "645ec32803b6c9ee0dac9cec59afe08e6759de97c2a7d61d772592b74578ef75",
+      "line_count": 200
+    },
+    "train_800.jsonl": {
+      "sha256": "bab57df5a547d588ab6a2e716eec49f7cb4b46a74637f3becec10d615b434bb7",
+      "line_count": 800
+    },
+    "calibration_100.jsonl": {
+      "sha256": "d0bcd575f2f05e8993eae039b0f3eadc375486bd08559519f51ead9b4cf81a57",
+      "line_count": 100
+    },
+    "test_100.jsonl": {
+      "sha256": "61bfa558553aed62508dc9b8d3e705fbb6b798f0a5c83e3dc87454e34721c011",
+      "line_count": 100
+    },
+    "corpus.jsonl": {
+      "sha256": "13f97fddc0f3092be9933565f784bf6f74ff5475e50e667b0127d83232167d5b",
+      "line_count": 1460
+    }
+  }
+}

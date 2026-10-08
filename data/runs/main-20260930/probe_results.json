@@ -1,0 +1,1483 @@
+{
+  "models": {
+    "qwen3.5:27b": {
+      "valid_tool_call_rate": 1.0,
+      "n": 20,
+      "valid": 20,
+      "mean_latency_ms": 835.835,
+      "items": [
+        {
+          "question": "What is the capital city of Australia?",
+          "valid": true,
+          "latency_ms": 976.679,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "capital city of Australia"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who wrote the novel Pride and Prejudice?",
+          "valid": true,
+          "latency_ms": 854.466,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "author of Pride and Prejudice"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "In which year did the Berlin Wall fall?",
+          "valid": true,
+          "latency_ms": 785.325,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "Berlin Wall fall year"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the tallest mountain in Africa?",
+          "valid": true,
+          "latency_ms": 808.632,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "tallest mountain in Africa"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who painted The Starry Night?",
+          "valid": true,
+          "latency_ms": 813.93,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "The Starry Night painter"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which river flows through Baghdad?",
+          "valid": true,
+          "latency_ms": 809.529,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "river flows through Baghdad"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the chemical symbol for tungsten?",
+          "valid": true,
+          "latency_ms": 818.693,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "chemical symbol for tungsten"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who was the first person to walk on the Moon?",
+          "valid": true,
+          "latency_ms": 861.091,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "first person to walk on the Moon"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which country hosted the 2016 Summer Olympics?",
+          "valid": true,
+          "latency_ms": 918.795,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "2016 Summer Olympics host country"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the official language of Brazil?",
+          "valid": true,
+          "latency_ms": 798.106,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "official language of Brazil"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who composed The Four Seasons?",
+          "valid": true,
+          "latency_ms": 829.653,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "composer of The Four Seasons"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "In which city was Albert Einstein born?",
+          "valid": true,
+          "latency_ms": 828.455,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "Albert Einstein birthplace city"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the largest desert in Asia?",
+          "valid": true,
+          "latency_ms": 817.698,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "largest desert in Asia"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which company developed the Windows operating system?",
+          "valid": true,
+          "latency_ms": 819.422,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "company that developed Windows operating system"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who directed the film Spirited Away?",
+          "valid": true,
+          "latency_ms": 859.79,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "director of the film Spirited Away"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the currency of Switzerland?",
+          "valid": true,
+          "latency_ms": 776.085,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "currency of Switzerland"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which planet has the most known moons?",
+          "valid": true,
+          "latency_ms": 895.651,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "planet with the most known moons"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who founded the city of Alexandria?",
+          "valid": true,
+          "latency_ms": 779.104,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "founder of Alexandria"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the national animal of Scotland?",
+          "valid": true,
+          "latency_ms": 829.715,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "national animal of Scotland"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which university did Isaac Newton attend?",
+          "valid": true,
+          "latency_ms": 835.874,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "Isaac Newton university attended"
+              }
+            }
+          ],
+          "content": ""
+        }
+      ],
+      "digest": "7653528ba5cba4dd8e19da24aaddc7f4d0b5ecd93571c0825dfd4137958ec06e",
+      "probed_at": "2026-09-29T19:58:14.002Z"
+    },
+    "qwen3.5:9b": {
+      "valid_tool_call_rate": 1.0,
+      "n": 20,
+      "valid": 20,
+      "mean_latency_ms": 309.223,
+      "items": [
+        {
+          "question": "What is the capital city of Australia?",
+          "valid": true,
+          "latency_ms": 337.801,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "capital city of Australia"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who wrote the novel Pride and Prejudice?",
+          "valid": true,
+          "latency_ms": 321.956,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "author of Pride and Prejudice"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "In which year did the Berlin Wall fall?",
+          "valid": true,
+          "latency_ms": 295.54,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "year Berlin Wall fell"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the tallest mountain in Africa?",
+          "valid": true,
+          "latency_ms": 307.466,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "tallest mountain in Africa"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who painted The Starry Night?",
+          "valid": true,
+          "latency_ms": 302.375,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "The Starry Night painter"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which river flows through Baghdad?",
+          "valid": true,
+          "latency_ms": 295.439,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "river flowing through Baghdad"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the chemical symbol for tungsten?",
+          "valid": true,
+          "latency_ms": 299.984,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "chemical symbol for tungsten"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who was the first person to walk on the Moon?",
+          "valid": true,
+          "latency_ms": 320.1,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "first person to walk on the Moon"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which country hosted the 2016 Summer Olympics?",
+          "valid": true,
+          "latency_ms": 352.419,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "host country of 2016 Summer Olympics"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the official language of Brazil?",
+          "valid": true,
+          "latency_ms": 302.23,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "official language of Brazil"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who composed The Four Seasons?",
+          "valid": true,
+          "latency_ms": 308.092,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "composer of The Four Seasons"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "In which city was Albert Einstein born?",
+          "valid": true,
+          "latency_ms": 302.477,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "Albert Einstein birthplace city"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the largest desert in Asia?",
+          "valid": true,
+          "latency_ms": 304.187,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "largest desert in Asia"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which company developed the Windows operating system?",
+          "valid": true,
+          "latency_ms": 307.6,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "company that developed Windows operating system"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who directed the film Spirited Away?",
+          "valid": true,
+          "latency_ms": 316.68,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "director of the film Spirited Away"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the currency of Switzerland?",
+          "valid": true,
+          "latency_ms": 285.982,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "currency of Switzerland"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which planet has the most known moons?",
+          "valid": true,
+          "latency_ms": 302.25,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "planet with most known moons"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who founded the city of Alexandria?",
+          "valid": true,
+          "latency_ms": 324.33,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "founder of the city of Alexandria"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the national animal of Scotland?",
+          "valid": true,
+          "latency_ms": 295.464,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "national animal of Scotland"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which university did Isaac Newton attend?",
+          "valid": true,
+          "latency_ms": 302.097,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "Isaac Newton university attended"
+              }
+            }
+          ],
+          "content": ""
+        }
+      ],
+      "digest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+      "probed_at": "2026-09-29T19:58:24.876Z"
+    },
+    "qwen3.5:4b": {
+      "valid_tool_call_rate": 1.0,
+      "n": 20,
+      "valid": 20,
+      "mean_latency_ms": 235.019,
+      "items": [
+        {
+          "question": "What is the capital city of Australia?",
+          "valid": true,
+          "latency_ms": 327.425,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "capital city of Australia"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who wrote the novel Pride and Prejudice?",
+          "valid": true,
+          "latency_ms": 254.785,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "who wrote the novel Pride and Prejudice"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "In which year did the Berlin Wall fall?",
+          "valid": true,
+          "latency_ms": 236.035,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "Berlin Wall fell year"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the tallest mountain in Africa?",
+          "valid": true,
+          "latency_ms": 247.254,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "tallest mountain in Africa"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who painted The Starry Night?",
+          "valid": true,
+          "latency_ms": 234.976,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "who painted The Starry Night"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which river flows through Baghdad?",
+          "valid": true,
+          "latency_ms": 223.06,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "river flows through Baghdad"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the chemical symbol for tungsten?",
+          "valid": true,
+          "latency_ms": 224.805,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "chemical symbol for tungsten"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who was the first person to walk on the Moon?",
+          "valid": true,
+          "latency_ms": 235.718,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "first person to walk on the Moon"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which country hosted the 2016 Summer Olympics?",
+          "valid": true,
+          "latency_ms": 239.116,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "2016 Summer Olympics host country"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the official language of Brazil?",
+          "valid": true,
+          "latency_ms": 221.405,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "official language of Brazil"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who composed The Four Seasons?",
+          "valid": true,
+          "latency_ms": 225.093,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "who composed The Four Seasons"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "In which city was Albert Einstein born?",
+          "valid": true,
+          "latency_ms": 230.691,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "Albert Einstein birthplace city"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the largest desert in Asia?",
+          "valid": true,
+          "latency_ms": 224.105,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "largest desert in Asia"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which company developed the Windows operating system?",
+          "valid": true,
+          "latency_ms": 222.351,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "company developed Windows operating system"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who directed the film Spirited Away?",
+          "valid": true,
+          "latency_ms": 222.533,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "Spirited Away film director"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the currency of Switzerland?",
+          "valid": true,
+          "latency_ms": 212.532,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "Switzerland currency"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which planet has the most known moons?",
+          "valid": true,
+          "latency_ms": 230.378,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "planet with most known moons"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who founded the city of Alexandria?",
+          "valid": true,
+          "latency_ms": 235.011,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "who founded the city of Alexandria"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the national animal of Scotland?",
+          "valid": true,
+          "latency_ms": 219.279,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "national animal of Scotland"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which university did Isaac Newton attend?",
+          "valid": true,
+          "latency_ms": 233.822,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "Isaac Newton attended which university"
+              }
+            }
+          ],
+          "content": ""
+        }
+      ],
+      "digest": "2a654d98e6fba55d452b7043684e9b57a947e393bbffa62485a7aac05ee4eefd",
+      "probed_at": "2026-09-29T19:58:32.430Z"
+    },
+    "qwen3.5:2b": {
+      "valid_tool_call_rate": 1.0,
+      "n": 20,
+      "valid": 20,
+      "mean_latency_ms": 177.776,
+      "items": [
+        {
+          "question": "What is the capital city of Australia?",
+          "valid": true,
+          "latency_ms": 224.931,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "capital city of Australia"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who wrote the novel Pride and Prejudice?",
+          "valid": true,
+          "latency_ms": 198.358,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "who wrote the novel Pride and Prejudice"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "In which year did the Berlin Wall fall?",
+          "valid": true,
+          "latency_ms": 177.648,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "when did the Berlin Wall fall"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the tallest mountain in Africa?",
+          "valid": true,
+          "latency_ms": 167.183,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "tallest mountain in Africa"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who painted The Starry Night?",
+          "valid": true,
+          "latency_ms": 170.903,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "The Starry Night painter"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which river flows through Baghdad?",
+          "valid": true,
+          "latency_ms": 171.478,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "which river flows through Baghdad"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the chemical symbol for tungsten?",
+          "valid": true,
+          "latency_ms": 169.971,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "chemical symbol for tungsten"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who was the first person to walk on the Moon?",
+          "valid": true,
+          "latency_ms": 179.902,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "first person to walk on the Moon"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which country hosted the 2016 Summer Olympics?",
+          "valid": true,
+          "latency_ms": 196.433,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "host country of 2016 Summer Olympics"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the official language of Brazil?",
+          "valid": true,
+          "latency_ms": 167.228,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "official language of Brazil"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who composed The Four Seasons?",
+          "valid": true,
+          "latency_ms": 169.885,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "composer of The Four Seasons"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "In which city was Albert Einstein born?",
+          "valid": true,
+          "latency_ms": 171.232,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "Albert Einstein birthplace city"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the largest desert in Asia?",
+          "valid": true,
+          "latency_ms": 170.58,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "largest desert in Asia"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which company developed the Windows operating system?",
+          "valid": true,
+          "latency_ms": 180.973,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "which company developed the Windows operating system"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who directed the film Spirited Away?",
+          "valid": true,
+          "latency_ms": 176.457,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "who directed the film Spirited Away"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the currency of Switzerland?",
+          "valid": true,
+          "latency_ms": 163.889,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "currency of Switzerland"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which planet has the most known moons?",
+          "valid": true,
+          "latency_ms": 173.966,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "planet with the most known moons"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who founded the city of Alexandria?",
+          "valid": true,
+          "latency_ms": 172.569,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "who founded the city of Alexandria"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the national animal of Scotland?",
+          "valid": true,
+          "latency_ms": 179.724,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "national animal of Scotland"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which university did Isaac Newton attend?",
+          "valid": true,
+          "latency_ms": 172.209,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "Isaac Newton university attended"
+              }
+            }
+          ],
+          "content": ""
+        }
+      ],
+      "digest": "324d162be6ca5629ae4517c8710434d0bd2d665bc94dbad46e9af8fbf8a2f0df",
+      "probed_at": "2026-09-29T19:58:39.432Z"
+    },
+    "qwen3.5:0.8b": {
+      "valid_tool_call_rate": 1.0,
+      "n": 20,
+      "valid": 20,
+      "mean_latency_ms": 134.139,
+      "items": [
+        {
+          "question": "What is the capital city of Australia?",
+          "valid": true,
+          "latency_ms": 175.167,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "capital city of Australia"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who wrote the novel Pride and Prejudice?",
+          "valid": true,
+          "latency_ms": 144.318,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "Pride and Prejudice author"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "In which year did the Berlin Wall fall?",
+          "valid": true,
+          "latency_ms": 137.319,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "Berlin Wall fall year"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the tallest mountain in Africa?",
+          "valid": true,
+          "latency_ms": 138.486,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "tallest mountain in Africa"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who painted The Starry Night?",
+          "valid": true,
+          "latency_ms": 131.846,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "The Starry Night painting"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which river flows through Baghdad?",
+          "valid": true,
+          "latency_ms": 130.937,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "which river flows through Baghdad"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the chemical symbol for tungsten?",
+          "valid": true,
+          "latency_ms": 125.975,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "tungsten chemical symbol"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who was the first person to walk on the Moon?",
+          "valid": true,
+          "latency_ms": 138.959,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "first person to walk on the Moon"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which country hosted the 2016 Summer Olympics?",
+          "valid": true,
+          "latency_ms": 142.673,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "2016 Summer Olympics host country"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the official language of Brazil?",
+          "valid": true,
+          "latency_ms": 127.275,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "official language of Brazil"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who composed The Four Seasons?",
+          "valid": true,
+          "latency_ms": 127.202,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "The Four Seasons composer"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "In which city was Albert Einstein born?",
+          "valid": true,
+          "latency_ms": 129.083,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "Albert Einstein birthplace"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the largest desert in Asia?",
+          "valid": true,
+          "latency_ms": 131.712,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "largest desert in Asia"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which company developed the Windows operating system?",
+          "valid": true,
+          "latency_ms": 126.428,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "Windows operating system developer"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who directed the film Spirited Away?",
+          "valid": true,
+          "latency_ms": 131.299,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "Spirited Away director"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the currency of Switzerland?",
+          "valid": true,
+          "latency_ms": 124.951,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "currency of Switzerland"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which planet has the most known moons?",
+          "valid": true,
+          "latency_ms": 129.495,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "most known moons planet"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Who founded the city of Alexandria?",
+          "valid": true,
+          "latency_ms": 128.264,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "who founded Alexandria Egypt"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "What is the national animal of Scotland?",
+          "valid": true,
+          "latency_ms": 128.097,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "national animal of Scotland"
+              }
+            }
+          ],
+          "content": ""
+        },
+        {
+          "question": "Which university did Isaac Newton attend?",
+          "valid": true,
+          "latency_ms": 133.301,
+          "tool_calls": [
+            {
+              "name": "search",
+              "arguments": {
+                "query": "Isaac Newton attended university"
+              }
+            }
+          ],
+          "content": ""
+        }
+      ],
+      "digest": "f3817196d142eaf72ce79dfebe53dcb20bd21da87ce13e138a8f8e10a866b3a4",
+      "probed_at": "2026-09-29T19:58:44.473Z"
+    }
+  },
+  "run_id": "main-20260930",
+  "updated_at": "2026-09-29T19:58:44.473Z",
+  "tool": "search",
+  "questions": [
+    "What is the capital city of Australia?",
+    "Who wrote the novel Pride and Prejudice?",
+    "In which year did the Berlin Wall fall?",
+    "What is the tallest mountain in Africa?",
+    "Who painted The Starry Night?",
+    "Which river flows through Baghdad?",
+    "What is the chemical symbol for tungsten?",
+    "Who was the first person to walk on the Moon?",
+    "Which country hosted the 2016 Summer Olympics?",
+    "What is the official language of Brazil?",
+    "Who composed The Four Seasons?",
+    "In which city was Albert Einstein born?",
+    "What is the largest desert in Asia?",
+    "Which company developed the Windows operating system?",
+    "Who directed the film Spirited Away?",
+    "What is the currency of Switzerland?",
+    "Which planet has the most known moons?",
+    "Who founded the city of Alexandria?",
+    "What is the national animal of Scotland?",
+    "Which university did Isaac Newton attend?"
+  ],
+  "num_ctx": 8192,
+  "temperature": 0,
+  "think": false,
+  "seed": 42
+}

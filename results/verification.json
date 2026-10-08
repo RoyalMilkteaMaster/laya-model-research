@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "run_id": "main-20260930",
+  "verified_checksum_files": 100,
+  "final_records": 12000,
+  "configurations": 60,
+  "questions_per_configuration": 200,
+  "answer_scores_recomputed": 12000,
+  "summary_matches": true,
+  "bootstrap_effects": 60,
+  "bootstrap_matches": true,
+  "error_taxonomy_rows": 280,
+  "error_taxonomy_matches": true,
+  "matching_latex_tables": 13,
+  "figures_regenerated": 5,
+  "final_status_counts": {
+    "done": 11445,
+    "error": 1,
+    "invalid_tool": 554
+  },
+  "python": "3.12.14",
+  "matplotlib": "3.11.2",
+  "pandas": "3.0.6",
+  "scope": "Re-analysis of saved answers and traces; no model inference, retraining, or new latency measurements.",
+  "table_comparison": "Exact text after normalizing platform line endings; CSV cells compared exactly.",
+  "controller_evaluation": "The historical aggregate evaluation report is an input; individual controller predictions were not archived."
+}

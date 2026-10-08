@@ -1,0 +1,123 @@
+{
+  "hotpotqa": [
+    {
+      "id": "hp-1",
+      "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+      "answer": "yes",
+      "type": "comparison",
+      "level": "hard",
+      "supporting_facts": {"title": ["Scott Derrickson", "Ed Wood"], "sent_id": [0, 0]},
+      "context": {
+        "title": ["Ed Wood (film)", "Scott Derrickson", "Ed Wood"],
+        "sentences": [
+          ["Ed Wood is a 1994 American film.", " It was directed by Tim Burton."],
+          ["Scott Derrickson (born July 16, 1966) is an American director.", " He lives in Los Angeles, California."],
+          ["Edward Davis Wood Jr. was an American filmmaker."]
+        ]
+      }
+    },
+    {
+      "id": "hp-2",
+      "question": "Which city is the director of Ed Wood (film) from?",
+      "answer": "Burbank",
+      "type": "bridge",
+      "level": "medium",
+      "supporting_facts": {"title": ["Ed Wood (film)", "Tim Burton", "Tim Burton"], "sent_id": [1, 1, 0]},
+      "context": {
+        "title": ["Tim Burton", "Ed Wood (film)", "Woodson, Arkansas"],
+        "sentences": [
+          ["Tim Burton is an American filmmaker.", " He was born in Burbank, California."],
+          ["Ed Wood is a 1994 American film.", " It was directed by Tim Burton."],
+          ["Woodson is a census-designated place in Pulaski County, Arkansas."]
+        ]
+      }
+    },
+    {
+      "id": "hp-0",
+      "question": "What instrument does the lead guitarist of Marilyn Manson compose for?",
+      "answer": "film",
+      "type": "bridge",
+      "level": "easy",
+      "supporting_facts": {"title": ["Tyler Bates", "Marilyn Manson (band)", "Marilyn Manson (band)"], "sent_id": [0, 0, 5]},
+      "context": {
+        "title": ["Tyler Bates", "Marilyn Manson (band)", "Adam Collis"],
+        "sentences": [
+          ["Tyler Bates is an American composer for films."],
+          ["Marilyn Manson is an American rock band."],
+          ["Adam Collis is an American filmmaker and actor."]
+        ]
+      }
+    }
+  ],
+  "2wiki": [
+    {
+      "id": "2w-1",
+      "question": "Who is the mother of the director of film Polish-Russian War (Film)?",
+      "answer": "Małgorzata Braunek",
+      "type": "compositional",
+      "evidences": [["Polish-Russian War", "director", "Xawery Żuławski"], ["Xawery Żuławski", "mother", "Małgorzata Braunek"]],
+      "supporting_facts": {"title": ["Polish-Russian War (film)", "Xawery Żuławski"], "sent_id": [1, 1]},
+      "context": {
+        "title": ["Maheen Khan", "Polish-Russian War (film)", "Xawery Żuławski", "Maheen Khan"],
+        "sentences": [
+          ["Maheen Khan is a Pakistani fashion designer.", "She has done many fashion events."],
+          ["Polish-Russian War", "(Wojna polsko-ruska) is a 2009 Polish film directed by Xawery Żuławski."],
+          ["Xawery Żuławski is a Polish film director.", "He is the son of Andrzej Żuławski and Małgorzata Braunek."],
+          ["Maheen Khan is a Pakistani fashion designer.", "She has done many fashion events."]
+        ]
+      }
+    },
+    {
+      "id": "2w-2",
+      "question": "Which film came out first, Blind Shaft or The Mask Of Fu Manchu?",
+      "answer": "The Mask Of Fu Manchu",
+      "type": "comparison",
+      "evidences": [["Blind Shaft", "publication date", "2003"], ["The Mask of Fu Manchu", "publication date", "1932"]],
+      "supporting_facts": {"title": ["Blind Shaft", "The Mask of Fu Manchu"], "sent_id": [0, 0]},
+      "context": {
+        "title": ["Blind Shaft", "The Mask of Fu Manchu", "Alice Washburn"],
+        "sentences": [
+          ["Blind Shaft is a 2003 film."],
+          ["The Mask of Fu Manchu is a 1932 film."],
+          ["Alice Washburn was an American stage and film actress."]
+        ]
+      }
+    }
+  ],
+  "musique": [
+    {
+      "id": "2hop__1_2",
+      "paragraphs": [
+        {"idx": 0, "title": "Green", "paragraph_text": "Green is a color.", "is_supporting": false},
+        {"idx": 1, "title": "Grant Green", "paragraph_text": "Grant Green was an American jazz guitarist.", "is_supporting": true},
+        {"idx": 2, "title": "Blue Note Records", "paragraph_text": "Blue Note Records is an American jazz record label.", "is_supporting": true}
+      ],
+      "question": "Which record label released the debut album of the jazz guitarist Grant Green?",
+      "question_decomposition": [
+        {"id": 1, "question": "Who is Grant Green?", "answer": "jazz guitarist", "paragraph_support_idx": 1},
+        {"id": 2, "question": "Which label?", "answer": "Blue Note", "paragraph_support_idx": 2}
+      ],
+      "answer": "Blue Note",
+      "answer_aliases": ["Blue Note Records", "BN"],
+      "answerable": true
+    },
+    {
+      "id": "3hop1__3_4_5",
+      "paragraphs": [
+        {"idx": 0, "title": "Green", "paragraph_text": "Green is a color.", "is_supporting": false},
+        {"idx": 1, "title": "Nice", "paragraph_text": "Nice is a city in France.", "is_supporting": true},
+        {"idx": 2, "title": "France", "paragraph_text": "France is a country in Europe.", "is_supporting": true},
+        {"idx": 3, "title": "Europe", "paragraph_text": "Europe is a continent.", "is_supporting": true}
+      ],
+      "question": "On which continent is the country containing Nice?",
+      "question_decomposition": [
+        {"id": 3, "question": "Where is Nice?", "answer": "France", "paragraph_support_idx": 1},
+        {"id": 4, "question": "Where is France?", "answer": "Europe", "paragraph_support_idx": 2},
+        {"id": 5, "question": "What is Europe?", "answer": "continent", "paragraph_support_idx": 3}
+      ],
+      "answer": "Europe",
+      "answer_aliases": [],
+      "answerable": true
+    }
+  ]
+}

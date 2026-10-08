@@ -1,0 +1,46 @@
+\section{Related Work}
+\label{sec:related}
+
+%% [§2 ¶1]
+\textbf{Retrieval Pipelines.} RAG~\cite{lewis2020rag} supplies external passages to a
+generator. Yang \emph{et~al.}~\cite{yang2025enhancing} combined BGE-M3
+embeddings~\cite{chen2024bgem3}, an exact inner-product index~\cite{douze2024faiss}, and a
+BGE cross-encoder re-ranker~\cite{chen2024bgem3,bgerankerv2m3}. They reported accuracy
+gains for nearly all of 17 LLMs on two Chinese QA benchmarks. We adopt this pipeline and
+study who decides when to retrieve and stop.
+
+%% [§2 ¶2]
+\textbf{Multi-Hop QA and Agents.} HotpotQA~\cite{yang2018hotpotqa},
+2WikiMultihopQA~\cite{ho2020twowiki}, and MuSiQue~\cite{trivedi2022musique} require facts
+across Wikipedia paragraphs and label the supporting ones. The first two
+use EM and token-level F1, while MuSiQue uses answer F1. We report EM and F1 on all
+three and use their annotations to build corpora, derive weak labels, and classify
+errors. AutoGen~\cite{wu2024autogen} and its continuation AG2~\cite{ag2} let an LLM call
+tools across turns. Loops usually end through the generator's answer tool or a step
+limit. Tool-call reliability varies with model size.
+
+%% [§2 ¶3]
+\textbf{Adaptive and Dynamic Retrieval.} FLARE~\cite{jiang2023flare} retrieves when an
+upcoming sentence has low-confidence tokens. Adaptive-RAG~\cite{jeong2024adaptiverag}
+uses query complexity to choose no, single-step, or iterative retrieval.
+DRAGIN~\cite{su2024dragin} decides when and what to retrieve from the generator's
+information needs. SeaKR~\cite{yao2025seakr} uses uncertainty in the generator's internal
+states to trigger retrieval. These methods use the generator's signals or decide once per
+query. S2G-RAG~\cite{li2026s2grag} checks evidence sufficiency at each turn.
+RAG-on-a-Diet~\cite{ding2026ragdiet} trains a reinforcement-learning agent to select the
+smallest model that can handle each hop and to stop at a confidence threshold.
+
+%% [§2 ¶4]
+\textbf{Calibrated Decision Models.} Given a textual state and a question,
+Laya~\cite{laya} returns option probabilities in one forward pass. It supports
+\texttt{choice}, \texttt{noul} (yes/no, returning $P(\text{true})$), and \texttt{score}
+(ordinal) questions. Miscalibrated sufficiency probabilities can trigger early or late
+stops. We therefore report the Brier score and ECE.
+
+%% [§2 ¶5]
+\textbf{Positioning.} Deciding when to retrieve and when to stop is an established
+problem, and we do not claim a new decision layer for it. Our controller is calibrated,
+non-autoregressive, separate from the generator, and trained only on weak labels. Our
+factorial design changes only the evidence source and controller. RAG-on-a-Diet selects
+among generators to reduce cost. We instead vary generator size to study how it changes
+the accuracy-efficiency trade-off of external control.

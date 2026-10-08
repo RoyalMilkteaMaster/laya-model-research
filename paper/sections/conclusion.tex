@@ -1,0 +1,23 @@
+% Numbers only from summary.csv and laya_eval_report.md of run main-20260930.
+\section{Conclusion}
+\label{sec:conclusion}
+
+%% [§6 ¶1]
+We studied when calibrated external control should replace the generator's control of
+multi-hop retrieval. The controller trained on weak supporting-paragraph labels met
+all pre-registered thresholds, with \texttt{sufficient} accuracy of 0.9271 and ECE of
+0.0626. Retrieval contributed most, improving EM by up to 43.5\,pp. \textbf{RQ1.}
+External control changed EM mainly under retrieval. Errors most often involved stopping
+before all gold evidence was retrieved. \textbf{RQ2.} With retrieval, Laya reduced prompt
+tokens, output tokens, and hops throughout. It eliminated invalid tool calls for 0.8B
+and lowered p50 latency for 0.8B--9B. \textbf{RQ3.} Under retrieval, Laya raised EM
+point estimates by 1.5--9.0\,pp for 2B and 0.8B. The 4B--27B models achieved
+3.5--15.5\,pp higher EM under their own control. CIs support the 0.8B gain throughout
+and the 2B gain only on HotpotQA.
+
+%% [§6 ¶2]
+External control did not benefit every model. For the smallest models, it coincided with
+no invalid tool calls (0.8B), shorter retrieval loops, and higher EM point estimates at
+lower cost. For larger models, it stopped earlier, often before bridging evidence
+arrived, saving tokens and hops but lowering EM. This accuracy-efficiency trade-off
+depended on generator size and should be evaluated at each scale.

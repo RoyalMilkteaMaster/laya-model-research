@@ -1,0 +1,35 @@
+\begin{tabular}{|l|l|c|c|}
+\hline
+Model & Dataset & $\Delta_{\mathrm{Rec}}$ [95\% CI] & $\Delta_{\mathrm{Ret}}$ [95\% CI] \\
+\hline
+27B & HotpotQA & $-2.0$\,$[-5.5, 1.5]$ & $37.5$\,$[30.5, 45.0]$ \\ % model=qwen3.5:27b dataset=hotpotqa effects=controller_recall,retrieval_llm
+\cline{2-4}
+ & 2Wiki & $1.5$\,$[-2.0, 5.0]$ & $36.5$\,$[30.0, 43.5]$ \\ % model=qwen3.5:27b dataset=2wiki effects=controller_recall,retrieval_llm
+\cline{2-4}
+ & MuSiQue & $0.0$\,$[-2.5, 2.5]$ & $27.0$\,$[20.0, 34.0]$ \\ % model=qwen3.5:27b dataset=musique effects=controller_recall,retrieval_llm
+\hline
+9B & HotpotQA & $0.0$\,$[-3.5, 3.5]$ & $43.0$\,$[35.5, 50.5]$ \\ % model=qwen3.5:9b dataset=hotpotqa effects=controller_recall,retrieval_llm
+\cline{2-4}
+ & 2Wiki & $0.0$\,$[-3.5, 3.5]$ & $35.0$\,$[27.5, 42.5]$ \\ % model=qwen3.5:9b dataset=2wiki effects=controller_recall,retrieval_llm
+\cline{2-4}
+ & MuSiQue & $0.0$\,$[-2.0, 2.0]$ & $28.0$\,$[21.5, 34.5]$ \\ % model=qwen3.5:9b dataset=musique effects=controller_recall,retrieval_llm
+\hline
+4B & HotpotQA & $0.5$\,$[-3.0, 4.0]$ & $43.5$\,$[36.5, 50.5]$ \\ % model=qwen3.5:4b dataset=hotpotqa effects=controller_recall,retrieval_llm
+\cline{2-4}
+ & 2Wiki & $2.5$\,$[-2.5, 7.5]$ & $35.5$\,$[28.0, 43.5]$ \\ % model=qwen3.5:4b dataset=2wiki effects=controller_recall,retrieval_llm
+\cline{2-4}
+ & MuSiQue & $-1.0$\,$[-2.5, 0.0]$ & $30.0$\,$[23.5, 37.0]$ \\ % model=qwen3.5:4b dataset=musique effects=controller_recall,retrieval_llm
+\hline
+2B & HotpotQA & $0.0$\,$[-3.0, 3.0]$ & $23.5$\,$[16.5, 30.5]$ \\ % model=qwen3.5:2b dataset=hotpotqa effects=controller_recall,retrieval_llm
+\cline{2-4}
+ & 2Wiki & $-2.0$\,$[-6.5, 2.5]$ & $10.5$\,$[4.0, 17.0]$ \\ % model=qwen3.5:2b dataset=2wiki effects=controller_recall,retrieval_llm
+\cline{2-4}
+ & MuSiQue & $0.0$\,$[-1.5, 1.5]$ & $8.5$\,$[4.5, 13.0]$ \\ % model=qwen3.5:2b dataset=musique effects=controller_recall,retrieval_llm
+\hline
+0.8B & HotpotQA & $5.5$\,$[1.5, 9.5]$ & $19.0$\,$[13.0, 25.0]$ \\ % model=qwen3.5:0.8b dataset=hotpotqa effects=controller_recall,retrieval_llm
+\cline{2-4}
+ & 2Wiki & $8.0$\,$[3.5, 12.5]$ & $3.5$\,$[-1.0, 8.0]$ \\ % model=qwen3.5:0.8b dataset=2wiki effects=controller_recall,retrieval_llm
+\cline{2-4}
+ & MuSiQue & $0.5$\,$[0.0, 1.5]$ & $3.5$\,$[1.0, 6.0]$ \\ % model=qwen3.5:0.8b dataset=musique effects=controller_recall,retrieval_llm
+\hline
+\end{tabular}

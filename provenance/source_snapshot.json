@@ -1,0 +1,538 @@
+{
+  "exported_on": "2026-10-09",
+  "source_head": "d86c38b5c54f47b513083edbb206e1e8bd677662",
+  "run_id": "main-20260930",
+  "source_files_before_publication_edits": [
+    {
+      "path": "multihop_benchmark/.env.example",
+      "source_sha256": "3ae38981347b21bd1e2bce1894a23525f31730f12bc137c5c7865e402353f147"
+    },
+    {
+      "path": "multihop_benchmark/README.md",
+      "source_sha256": "22de86e593efad0b1c22f9a807789f6557806185a8370fdcdb1510f9907c15df"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/__init__.py",
+      "source_sha256": "48480d3c550c6a5ea9c5f451c52aaa66e543e4068dc1fc63c62aaff08a34abdf"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/agent/__init__.py",
+      "source_sha256": "70e850fdb5f90ae3a2cf0c2961c17490d522c32712b5cd19210454b65ffd28c0"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/agent/multihop_agent_loop.py",
+      "source_sha256": "612450931a71b6bbc72b34269625e897e38109e0112b9067d86a15c79dce110f"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/agent/ollama_llm_client.py",
+      "source_sha256": "3e67e89e140cb7a683f0afc7734ca4d3fb9b88d71967930a14e6b51182dd11e9"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/agent/protocols.py",
+      "source_sha256": "19c02a440115bfb6a773fb9605d15bd40b0dde328ab3dfba16aba1b9d0cada6b"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/benchmark_logger.py",
+      "source_sha256": "30033a27578896fab24e4671ab81bf19301abc714aa9e34d4798f0efd04dd7cb"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/cli.py",
+      "source_sha256": "fa720bb284ce099e07e64888dc74c43625ef99c8a860e65406c73638edccd397"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/datasets/__init__.py",
+      "source_sha256": "73411960e2b1ef3c8d75209f1d9a5d2077fafec3166a9bbfce9720ec4963b2c6"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/datasets/corpus_builder.py",
+      "source_sha256": "b653e0a887b1258897ecde0570a35092e2bb73b4417a2b3d48e41a60ec030539"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/datasets/multihop_dataset_loader.py",
+      "source_sha256": "81330cf12cdbbe1160db9250d29b36c0193bea756146079d8619af5a5e08f6d6"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/evaluation/__init__.py",
+      "source_sha256": "95264d45ca85d973097df7f1a01cb01e004c7f4950626fa2b1a9f42fe92e10a2"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/evaluation/answer_scorer.py",
+      "source_sha256": "8d12861ecb8793362bb0d0a7e130c6b092e9e4dd29912543a3d1fbeb221d0314"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/evaluation/gpu_memory_sampler.py",
+      "source_sha256": "1f2c781292517590c9d302167297ee9910608f726df9eb135d4d5a0616db6e69"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/laya_decision/__init__.py",
+      "source_sha256": "52c86beb5a1a3f17312cecce21792f1c0bfd56f80d3d4847b912ec40ffa632bd"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/laya_decision/decision_state_builder.py",
+      "source_sha256": "4505eca1f4e9988aaaa2ef96ee57dfef42ec6d60cebb30b74847930c368fee56"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/laya_decision/laya_decision_client.py",
+      "source_sha256": "84eef22a49227ff0610ee5add443e9d75b36d0080d83aaf482af7cc0e28f604a"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/laya_decision/laya_evaluator.py",
+      "source_sha256": "55d2a9b9cb1cb2ff8cb65e4915074c1bb480ad16cd78e809508cfc1f62131c2b"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/laya_decision/laya_trainer.py",
+      "source_sha256": "a832820ab7631452046d8dcd71d3b88388f0ad1d8ca05831c09bba769fdc9da7"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/laya_decision/weak_label_generator.py",
+      "source_sha256": "d06cec538fb1276009c69a7ae1353b9e6afc9f83737cedc76abcd9c43d8b2b9b"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/reporting/__init__.py",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/reporting/dashboard_builder.py",
+      "source_sha256": "fa64f2d02413ed41983c73ef44267737321f2e16056140311c7b02df4fead7ef"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/reporting/progress_report_writer.py",
+      "source_sha256": "e14038330f66909813fb2e7f452163cc7973f1403bc95ebbad6d8b504d8b8459"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/reporting/results_aggregator.py",
+      "source_sha256": "61f76f3d91a03124bcfbebd4a78b229fc690afe5a949402043acefb04f05c0b5"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/retrieval/__init__.py",
+      "source_sha256": "05cf9552639e2bfd5f5f30e6e25a0d2542b5c7b29e70b7c9a5c484c037be4760"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/retrieval/dense_index.py",
+      "source_sha256": "c012759cba1ea745ff3b6a9a82b649f2e96044125e076dc92bea6f1d17321865"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/retrieval/passage_reranker.py",
+      "source_sha256": "677699258ef844805b6994a956f04c9c7e39b463fc59c36f296c13e6b9282c8e"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/runs/__init__.py",
+      "source_sha256": "80b8ff87effe515c1306b8da574f86b5637044614e6270911f9782f95d7fd0db"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/runs/benchmark_runner.py",
+      "source_sha256": "94fc75a0aa292555bb2668b67040b741025ae58fb590c2c6363e1813016cdc04"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/runs/probe.py",
+      "source_sha256": "672e447ed60d6120b396bfc66032e536a0b7c1945a6d8438c60aa771ef29da0c"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/runs/record_store.py",
+      "source_sha256": "bf4c90ed06b00ec49e3853175d9985304babc18474dcd942b27d2a20bf6ccf7e"
+    },
+    {
+      "path": "multihop_benchmark/multihop_benchmark/settings.py",
+      "source_sha256": "533e47f3a939ef1d06f88b0255959fab3be49b58bef43c0e1eca767db7c721c8"
+    },
+    {
+      "path": "multihop_benchmark/pyproject.toml",
+      "source_sha256": "229e584be67f92137903b6d2e46890e25659b37b01662072ded2187e1db66402"
+    },
+    {
+      "path": "multihop_benchmark/scripts/env.sh",
+      "source_sha256": "43fdf69c42988f882a01b78cce88178bd7ba42f0ce7c0bed9d9f500256b0be38"
+    },
+    {
+      "path": "multihop_benchmark/scripts/setup_wsl_env.sh",
+      "source_sha256": "7636b9101dae6a0a0c101036c8e50a0b0941291278560104341ffc8c1e133be0"
+    },
+    {
+      "path": "multihop_benchmark/scripts/spike_ag2_ollama.py",
+      "source_sha256": "a26de501a6b6539f1e1a8be36a747d80f27f61bd15440e325379f7d5ec5b8e9b"
+    },
+    {
+      "path": "multihop_benchmark/scripts/start_benchmark_tmux.sh",
+      "source_sha256": "37d086fea0e17ff3acb4d77825045dbbef28830f2f401a128a96f7797e8fa2ab"
+    },
+    {
+      "path": "multihop_benchmark/tests/fakes/__init__.py",
+      "source_sha256": "e86afd792615d32921d0760cf775320bf43d3fba063871c8195bd0e3c6811b4f"
+    },
+    {
+      "path": "multihop_benchmark/tests/fixtures/prepare_data/raw_samples.json",
+      "source_sha256": "ed72cd84626f0ea9e04c7257802d58fb63e43a09c2b66dc9d15e1c1551105cee"
+    },
+    {
+      "path": "multihop_benchmark/tests/fixtures/report_run/records/2wiki__qwen3.5-27b__rag_llm.jsonl",
+      "source_sha256": "5e4469461790e4393fb9e9732be4518928651c339e6b4325fd56772986c1e5b9"
+    },
+    {
+      "path": "multihop_benchmark/tests/fixtures/report_run/records/hotpotqa__qwen3.5-4b__rag_laya.jsonl",
+      "source_sha256": "639f9d78286c890b21bd6170ec14d47158f6bd38910c0290a9076d6dee6b2a93"
+    },
+    {
+      "path": "multihop_benchmark/tests/fixtures/report_run/records/musique__qwen3.5-0.8b__recall_llm.jsonl",
+      "source_sha256": "9e47090556c39c7073b16c6fe5ae8e9d7857145651123f209873d807038b35bd"
+    },
+    {
+      "path": "multihop_benchmark/tests/fixtures/retrieval/corpus_5.jsonl",
+      "source_sha256": "9d60593e5a489bf0f5ffab9db327baf02307974a4b9c95a9b8b89e5aa976749a"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_aggregate_cli.py",
+      "source_sha256": "4d8df6601ca2a114fd43d1239be54387235b4076b595271ddf6d4bb49f8e50e9"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_answer_scorer.py",
+      "source_sha256": "ab6fb5fe3c85df22e51dcd6df7211c73861794f1270dddba079ba592ded00a55"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_benchmark_logger.py",
+      "source_sha256": "c91989bb44a0fea0edd2f600de9db4ebaf3eced70a6b4a331581fdc022a99e7c"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_benchmark_runner.py",
+      "source_sha256": "34dfea57a02d5b0b97df880bd38415864dd3a4e08fe661968706be02f2936d56"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_benchmark_runner_integration.py",
+      "source_sha256": "f0c8406897131642f89b58885ba113b7802ee482f68478d79bbd3ef9ce5aa138"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_build_index_cli.py",
+      "source_sha256": "bc306e1f17e010c2ea39931d8626bde4b7d14d8ef6926a5db9e341cade6b0ceb"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_cli.py",
+      "source_sha256": "e0b82af433e79bbf54247921c9f4c7ed508f8b609cb274813cb491c54552f715"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_corpus_builder.py",
+      "source_sha256": "db5255418f6d38288b41e4c042fd221c16c7074c766876dea67bfa26320b459d"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_dashboard_builder.py",
+      "source_sha256": "cc93c4636ce951eb7e9216450d89c8578640fcfb863317c4abc77237de42459b"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_decision_state_builder.py",
+      "source_sha256": "6b322c6b721147609d0e3b182eb7e64146b3d4f1da58879251431e807c4929d9"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_dense_index.py",
+      "source_sha256": "882303741407eceed262d10f509b22cb7684838b97c2fdaa0b0ebe91c1bb5841"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_gpu_memory_sampler.py",
+      "source_sha256": "36087aae988dd068581ea32ec934cd46135a2e7ce8e30e002e0468fbcbf71343"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_laya_decision_client.py",
+      "source_sha256": "9e72ef73e63349199461ba25e26c9b57ddef6ac987b6bd9c5962478172a115a7"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_laya_decision_client_integration.py",
+      "source_sha256": "156d0d8387d4dda3dfdca1a68cab45c475b22e064f43a4ec3bccdcd1cfe8d06e"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_laya_evaluator.py",
+      "source_sha256": "6e9327c58abdbd3bde4fb97dbc2db0e47024c481fb90f860e19a3a2436b7827c"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_laya_trainer.py",
+      "source_sha256": "4eb816d3591685986bfb36eb8f83d62094e8bb443608834eff7cb5e1e3c48d15"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_make_laya_data_cli.py",
+      "source_sha256": "9b6c5c0573ae4e683d3bf381ac73bc48bf36750d1c61b819c3faea8656275e28"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_multihop_agent_loop.py",
+      "source_sha256": "6f6fffb4fc28bd474fe7c8da0bceebbb290ae4af5ed19fde43a51647df0e376a"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_multihop_agent_loop_integration.py",
+      "source_sha256": "491b444a7a57028cfbab507573bf8f77736801222bc1b72534e8e03a6751be7e"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_multihop_dataset_loader.py",
+      "source_sha256": "9dcac965bb195037004794fb3691b801a7a096a7e52f41d9a0a8fc9958e8b299"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_ollama_llm_client.py",
+      "source_sha256": "480227021d9014e65aa19962640a71ddaeb06d24b34a156c88daa2140fbafc8b"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_passage_reranker.py",
+      "source_sha256": "8da961342604ae9e49cf194b2dafde022d3924a140d087c7a923b0df0d0f8959"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_prepare_data_cli.py",
+      "source_sha256": "1e8235430e0dd3a2d9ed02b2073f4517ae9f2f4e36ae02da40f5c9cde763c051"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_probe.py",
+      "source_sha256": "1da662c8fa88b6e136562eff42a3636ebf021c9bd5455509d6ab56dd87bf345e"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_progress_report_writer.py",
+      "source_sha256": "cc13b12c1a58648b2086038aefd6f4c9c53b1de40091488701209fa1301acc49"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_record_store.py",
+      "source_sha256": "88bd3f54e04d8c87ad5496f0b82bbca882977315199e84569d28f0f5ebf2af9d"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_report_cli.py",
+      "source_sha256": "1c691fdac9df2431da5b27f42e723bad6a5742b6e939bef9bbedda15e8382af0"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_results_aggregator.py",
+      "source_sha256": "6892bbe9ce149f8b83a249baaa9757a72ab4fb02ccffdcee9610305d6f0d3536"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_retriever.py",
+      "source_sha256": "06e65c5abab8b14cceee5865ba95bf78b7a0f134519b6362cb5998f5dedc14f1"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_run_cli.py",
+      "source_sha256": "be8a5103f69a23e6ecbece056191eec56b514c9bd7be8c7c7bb9addb4269da81"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_settings.py",
+      "source_sha256": "7ab08d5f3f98f83821cc0416490c53cb4e617d96eaaf57d0f0df00c7649c5163"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_setup_wsl_env.py",
+      "source_sha256": "7157c66c305f7de2695115eae4248a5153731a753ecac1baa8b9269a45f10ff1"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_start_benchmark_tmux.py",
+      "source_sha256": "015532538373eca750ed55e4a2abb5d9be042417ef658de83a124a1d039b5e8d"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_train_laya_cli.py",
+      "source_sha256": "1f3863f138198adf65d739d6860ecafa472c1dbbac689adfefb431054b989907"
+    },
+    {
+      "path": "multihop_benchmark/tests/test_weak_label_generator.py",
+      "source_sha256": "a8c90d212fb31868ecda8b45496747072019255608b414af54313cf7db13ae8b"
+    },
+    {
+      "path": "multihop_benchmark/uv.lock",
+      "source_sha256": "ed5a40fda1c996e943189a8c09e98ac870d90e04645c5d118f0e0561559a56b0"
+    },
+    {
+      "path": "paper/README.md",
+      "source_sha256": "ce692196e29afd280d753d51670d8cb589d048c0f640c1341a92abd05bb67ca5"
+    },
+    {
+      "path": "paper/analysis/bootstrap_ci.csv",
+      "source_sha256": "99f6423f71f5302350b48a5fd94f0aaeb4e7b0a8b516c982de7dcd56eda76ace"
+    },
+    {
+      "path": "paper/analysis/bootstrap_ci.py",
+      "source_sha256": "de187b194f5edd959afa8af573d3f420ac82aaf83c71c1415266ab8ae80d3055"
+    },
+    {
+      "path": "paper/analysis/error_taxonomy.csv",
+      "source_sha256": "4fa1b41f1306787806b452c7d7bacc76c37cbfe8468c92c325aeca8c555335d4"
+    },
+    {
+      "path": "paper/analysis/error_taxonomy.py",
+      "source_sha256": "d3331fd62e28b076802ab1207c610d6f4a6fc6adc025f751d86454e3c6917ee8"
+    },
+    {
+      "path": "paper/analysis/merge_tables.py",
+      "source_sha256": "252251c89042a4650b514db8b52b111e8d1143c55880e8331fc99f1156589e49"
+    },
+    {
+      "path": "paper/analysis/test_bootstrap_ci.py",
+      "source_sha256": "8b9422bc8af2602ed444cbd706ff66d3309ce45d48a0d4f07a17ddcd435e42d4"
+    },
+    {
+      "path": "paper/analysis/test_error_taxonomy.py",
+      "source_sha256": "e6a492d6c85582a174d47b21bbb353c6b89a85b1381290a12d15acfbc3bd3127"
+    },
+    {
+      "path": "paper/analysis/test_merge_tables.py",
+      "source_sha256": "b06f0381bbe76a839e5d487c53409c01add89d3273f3a97fc516b10f1a429516"
+    },
+    {
+      "path": "paper/check_paper.sh",
+      "source_sha256": "3c5490d2042725f96006880f6b7920e0f30c84982236c912c462a63d6f417a47"
+    },
+    {
+      "path": "paper/cvpr.sty",
+      "source_sha256": "2602473285d1a7df2a445ac89b76e1afa0acab78e056f0369d19770245190153"
+    },
+    {
+      "path": "paper/figures/em_vs_size_2wiki.pdf",
+      "source_sha256": "3ca46023b50c0232d7cea009f463e6b083f9e52556fbb337e7c60b650a495c82"
+    },
+    {
+      "path": "paper/figures/em_vs_size_hotpotqa.pdf",
+      "source_sha256": "1103cf6fcdc7ad43c398ffcd070d5f3eee07aee7b92188438b166ea193a3897c"
+    },
+    {
+      "path": "paper/figures/em_vs_size_musique.pdf",
+      "source_sha256": "ee2d3302e4565e0f96a8e028909f8deb8868044058b27d5ec498c7f9df9668c5"
+    },
+    {
+      "path": "paper/figures/hops_distribution.pdf",
+      "source_sha256": "6ab4b4783ebd6069213469bb65e22dc6afa0d4294d1497cb4cb97ceb76c75cd6"
+    },
+    {
+      "path": "paper/figures/latency_vs_size.pdf",
+      "source_sha256": "620f9224519273b6fa6eee79cb14fa140b62e545160cc147fa67a6cb86e9273a"
+    },
+    {
+      "path": "paper/ieeenat_fullname.bst",
+      "source_sha256": "e38e6166bd7b1e6d23a1b79dcdb55c656e4fcdbe91bdf6b50d827e6b5d1aacfc"
+    },
+    {
+      "path": "paper/main.tex",
+      "source_sha256": "036d8e2254aab583ead698fd9a4df9db0bcc9a12853b8b1ac643d227f3b807dc"
+    },
+    {
+      "path": "paper/refs.bib",
+      "source_sha256": "59a28114c53bd46de55c58159bce71c620cbb320d2bed76b44fdb6c89f8cfd93"
+    },
+    {
+      "path": "paper/sections/abstract.tex",
+      "source_sha256": "ff40931087428649f667814d498314944e872e6750b9dda932629be89fdba066"
+    },
+    {
+      "path": "paper/sections/appendix.tex",
+      "source_sha256": "383122c77ba29c0ea1eed5c0760987b4826f4007f966a5562dc47e824007817d"
+    },
+    {
+      "path": "paper/sections/conclusion.tex",
+      "source_sha256": "47a63f94f7b497912ac45ad129974205c758371e9f33ae7e66a9bfe028b06590"
+    },
+    {
+      "path": "paper/sections/discussion.tex",
+      "source_sha256": "56a792d4bfee52fb2406970183325c6d78faf66c638c2a6c434101b931742fc1"
+    },
+    {
+      "path": "paper/sections/experiments.tex",
+      "source_sha256": "64d7e665374ca5368aae631ae94fdd5c8b4b5d2b8a2d108233fe7dc512d224f0"
+    },
+    {
+      "path": "paper/sections/implementation_details.tex",
+      "source_sha256": "fab5ab5feb91633cff233344e31d556c0ae34103bd1529ab9c585bc84424a7c5"
+    },
+    {
+      "path": "paper/sections/introduction.tex",
+      "source_sha256": "3313874d38d42b7beff9c6eff51027a87a1539254e202f7d96ae1b5f13dfc4b9"
+    },
+    {
+      "path": "paper/sections/method.tex",
+      "source_sha256": "88f91c5d43830da1a13867787345034cce12998bdcb825789e1d61ef5d3377bb"
+    },
+    {
+      "path": "paper/sections/related_work.tex",
+      "source_sha256": "812d3f5981993e3d6c2287c97abdf17aacd047d39e5d15740bdf63d67378d720"
+    },
+    {
+      "path": "paper/tables/bootstrap_ci.tex",
+      "source_sha256": "dd10e379daeac72c3f87181bb740ff8d732c5faa327e80b298b91849f5307dea"
+    },
+    {
+      "path": "paper/tables/controller_probe.tex",
+      "source_sha256": "e6583a2485e5f249b1ad1b413c40742e504c994ac047a88394e091cc38e7cef8"
+    },
+    {
+      "path": "paper/tables/effects_recall_retrieval.tex",
+      "source_sha256": "35f311244153d2d6d8051596d460ae1a8e6ed0a1ad2d1a9f2d2c9b0bfeb4c8ce"
+    },
+    {
+      "path": "paper/tables/efficiency_2wiki.tex",
+      "source_sha256": "8e045bb92562ba5ec29a8ccbd5ab9d24c838267b6db30a1c68ab48113cc325ca"
+    },
+    {
+      "path": "paper/tables/efficiency_hotpotqa.tex",
+      "source_sha256": "13e7a9bd20624c370dd447b719bb8576ff4ccb548f0630c766c04aa260c550cc"
+    },
+    {
+      "path": "paper/tables/efficiency_musique.tex",
+      "source_sha256": "ec5f2d228b3bd8d00d01541aeee7cad3bda0ff7b2f69fb4ce6a1e5355b9b529a"
+    },
+    {
+      "path": "paper/tables/efficiency_p95.tex",
+      "source_sha256": "4a3462bb352474d5ee9e496a7550304b12034832bef03d9cd544754e1543e990"
+    },
+    {
+      "path": "paper/tables/efficiency_panels.tex",
+      "source_sha256": "a919424324e02b4836c29937abb368a0240d4e40346de37aa374f868eea14043"
+    },
+    {
+      "path": "paper/tables/error_taxonomy.tex",
+      "source_sha256": "ed60d215075a735033d27ff889411b844a942dd90cf3e196b42f87bff4cbf6bc"
+    },
+    {
+      "path": "paper/tables/error_taxonomy_by_dataset.tex",
+      "source_sha256": "3c30da9ebade4c429551c93c20283c82435b9cdf91b22275fab2cef71584d202"
+    },
+    {
+      "path": "paper/tables/main_results.tex",
+      "source_sha256": "5cc58dde94ad8f8e8bcfcb08930b9cf2de7f02dd7a041063cba6d27b0ca75598"
+    },
+    {
+      "path": "paper/tables/main_results_panels.tex",
+      "source_sha256": "6364f237d7c2f0a04bb345834fd7d06bc42cce7a7c6befe33e406f28a0077023"
+    },
+    {
+      "path": "paper/tables/probe.tex",
+      "source_sha256": "8312caf82632771ff35044a230e4a645af0d38fe0d14351c19dba44f930a4770"
+    },
+    {
+      "path": "paper/zh-TW/build_pdf.py",
+      "source_sha256": "fbdc57ab754ba960d956fff10a94e7713b6a664c468e112d326419b6b8d74027"
+    },
+    {
+      "path": "paper/zh-TW/main.md",
+      "source_sha256": "e57ad42300d1e3d0213aa03777469b304f619fc0391c72e33e42a27d6402f403"
+    }
+  ],
+  "metadata_redactions": [
+    {
+      "path": "data/runs/laya_eval/laya_eval_report.json",
+      "source_sha256": "d777307874414efd613ea18bc2b5c9fe3c74ab7752d183787d9dde7b67dd21c7",
+      "change": "Replaced machine-local paths with environment-variable placeholders only"
+    },
+    {
+      "path": "data/runs/laya_eval/laya_eval_report.md",
+      "source_sha256": "8fa0e5897652dedc69b9f1e4e830e64eadab6e789d90f71eaad905f759882986",
+      "change": "Replaced machine-local paths with environment-variable placeholders only"
+    },
+    {
+      "path": "data/runs/laya_eval/train_summary.json",
+      "source_sha256": "19ca1c787f6c94cbc1fbd48f606581e26d6aa9872d8e5a5f6cf0b1ff7e036722",
+      "change": "Replaced machine-local paths with environment-variable placeholders only"
+    },
+    {
+      "path": "data/runs/main-20260930/manifest.json",
+      "source_sha256": "91d6a2564dfda1aad1751f6f75b0e0d1312ee7e5496748052004f5d6466a0dd3",
+      "change": "Replaced machine-local paths with environment-variable placeholders only"
+    }
+  ],
+  "decision_data": {
+    "calibration.jsonl": {
+      "sha256": "326ac4f759c472a6ed701bb7091e609350dfc26099b0bb34b152fdcf04120153",
+      "bytes": 4088354,
+      "lines": 3996
+    },
+    "test.jsonl": {
+      "sha256": "b8c19265547c91cc4d013da399cafa721372f9db764c486f34a3e6b5fbf43480",
+      "bytes": 4130861,
+      "lines": 4032
+    },
+    "train.jsonl": {
+      "sha256": "f59cbea2b4202a4ce448cd69206bbf5a07f3725871a7548097b7551ce978552c",
+      "bytes": 33178575,
+      "lines": 32451
+    }
+  }
+}

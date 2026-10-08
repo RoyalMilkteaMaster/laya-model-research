@@ -1,0 +1,44 @@
+{
+  "schema_version": "2",
+  "generator": {
+    "module": "multihop_benchmark.datasets.multihop_dataset_loader",
+    "version": "1"
+  },
+  "dataset": "hotpotqa",
+  "seed": 42,
+  "created_at": "2026-09-29T17:21:56Z",
+  "source": {
+    "repo": "hotpotqa/hotpot_qa",
+    "config": "distractor",
+    "splits": {
+      "validation": {
+        "rows": 7405
+      },
+      "train": {
+        "rows": 90447
+      }
+    }
+  },
+  "files": {
+    "sample_200.jsonl": {
+      "sha256": "266b50db4704ba6d6d35b5016c3edf39342c8135969c4671b575bfb71fae5838",
+      "line_count": 200
+    },
+    "train_800.jsonl": {
+      "sha256": "707e76ced679d5663fc829761db92e199ef95c06aca3b03a299f4f2bd8c37ce6",
+      "line_count": 800
+    },
+    "calibration_100.jsonl": {
+      "sha256": "2be450eba1f3eb16d6cc46db784ab3686a58e87c721ec275b3533e164702d654",
+      "line_count": 100
+    },
+    "test_100.jsonl": {
+      "sha256": "0ba57bcd29fa05b381336e8f8624991a6bfcf3f0ecb4de71c0ddbdfaec1676c0",
+      "line_count": 100
+    },
+    "corpus.jsonl": {
+      "sha256": "bbe581255694737f37202715e986e36ed45829bb0d5221c019ef90bcabfbadab",
+      "line_count": 1996
+    }
+  }
+}

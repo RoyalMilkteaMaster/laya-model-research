@@ -1,0 +1,236 @@
+{
+  "run_id": "main-20260930",
+  "created_at": "2026-09-29T19:59:20.610Z",
+  "started_at": "2026-09-30T07:18:08.942Z",
+  "datasets": [
+    "hotpotqa",
+    "2wiki",
+    "musique"
+  ],
+  "models": [
+    "qwen3.5:0.8b",
+    "qwen3.5:2b",
+    "qwen3.5:4b",
+    "qwen3.5:9b",
+    "qwen3.5:27b"
+  ],
+  "conditions": [
+    "recall_llm",
+    "rag_llm",
+    "recall_laya",
+    "rag_laya"
+  ],
+  "questions_per_combo": 200,
+  "limit": null,
+  "model_digests": {
+    "qwen3.5:0.8b": "f3817196d142eaf72ce79dfebe53dcb20bd21da87ce13e138a8f8e10a866b3a4",
+    "qwen3.5:2b": "324d162be6ca5629ae4517c8710434d0bd2d665bc94dbad46e9af8fbf8a2f0df",
+    "qwen3.5:4b": "2a654d98e6fba55d452b7043684e9b57a947e393bbffa62485a7aac05ee4eefd",
+    "qwen3.5:9b": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+    "qwen3.5:27b": "7653528ba5cba4dd8e19da24aaddc7f4d0b5ecd93571c0825dfd4137958ec06e"
+  },
+  "ollama_version": "0.34.4",
+  "loop": {
+    "max_hops": 4,
+    "timeout_s": 300.0,
+    "num_ctx": 8192,
+    "oom_retry_num_ctx": 4096,
+    "temperature": 0,
+    "think": false,
+    "keep_alive": "30m",
+    "sufficient_threshold": 0.5,
+    "rag_top_n": 3,
+    "max_evidence": 8
+  },
+  "seed": 42,
+  "git_commit": "fd11d729df600225dc0e124ae02095276846dac9",
+  "laya_model_hash": "3c0aba0a00c69fc8c739e959ee4fb77b3cace926866d2834f0e28455617592e7",
+  "laya_model_dir": "${PROJECT_RUNTIME_ROOT}/models/laya_multihop",
+  "laya_device": "cuda",
+  "retrieval_device": "cuda",
+  "probe_summary": {
+    "qwen3.5:0.8b": {
+      "valid_tool_call_rate": 1.0,
+      "n": 20,
+      "mean_latency_ms": 134.139
+    },
+    "qwen3.5:2b": {
+      "valid_tool_call_rate": 1.0,
+      "n": 20,
+      "mean_latency_ms": 177.776
+    },
+    "qwen3.5:4b": {
+      "valid_tool_call_rate": 1.0,
+      "n": 20,
+      "mean_latency_ms": 235.019
+    },
+    "qwen3.5:9b": {
+      "valid_tool_call_rate": 1.0,
+      "n": 20,
+      "mean_latency_ms": 309.223
+    },
+    "qwen3.5:27b": {
+      "valid_tool_call_rate": 1.0,
+      "n": 20,
+      "mean_latency_ms": 835.835
+    }
+  },
+  "launches": [
+    {
+      "started_at": "2026-09-29T19:59:20.610Z",
+      "datasets": [
+        "hotpotqa",
+        "2wiki",
+        "musique"
+      ],
+      "models": [
+        "qwen3.5:27b",
+        "qwen3.5:9b",
+        "qwen3.5:4b",
+        "qwen3.5:2b",
+        "qwen3.5:0.8b"
+      ],
+      "conditions": [
+        "recall_llm",
+        "rag_llm",
+        "recall_laya",
+        "rag_laya"
+      ],
+      "limit": null,
+      "git_commit": "fd11d729df600225dc0e124ae02095276846dac9"
+    },
+    {
+      "started_at": "2026-09-29T23:40:29.080Z",
+      "datasets": [
+        "hotpotqa",
+        "2wiki",
+        "musique"
+      ],
+      "models": [
+        "qwen3.5:0.8b",
+        "qwen3.5:2b",
+        "qwen3.5:4b",
+        "qwen3.5:9b"
+      ],
+      "conditions": [
+        "recall_llm",
+        "rag_llm",
+        "recall_laya",
+        "rag_laya"
+      ],
+      "limit": null,
+      "git_commit": "fd11d729df600225dc0e124ae02095276846dac9"
+    },
+    {
+      "started_at": "2026-09-30T05:29:34.792Z",
+      "datasets": [
+        "2wiki",
+        "musique"
+      ],
+      "models": [
+        "qwen3.5:27b"
+      ],
+      "conditions": [
+        "recall_llm",
+        "rag_llm",
+        "recall_laya",
+        "rag_laya"
+      ],
+      "limit": null,
+      "questions_per_combo": 200,
+      "model_digests": {
+        "qwen3.5:27b": "7653528ba5cba4dd8e19da24aaddc7f4d0b5ecd93571c0825dfd4137958ec06e"
+      },
+      "loop": {
+        "max_hops": 4,
+        "timeout_s": 300.0,
+        "num_ctx": 8192,
+        "oom_retry_num_ctx": 4096,
+        "temperature": 0,
+        "think": false,
+        "keep_alive": "30m",
+        "sufficient_threshold": 0.5,
+        "rag_top_n": 3,
+        "max_evidence": 8
+      },
+      "seed": 42,
+      "git_commit": "25569ed782f134e4cd37cc68ffa649fed9561432",
+      "ollama_version": "0.34.4",
+      "laya_model_hash": "3c0aba0a00c69fc8c739e959ee4fb77b3cace926866d2834f0e28455617592e7"
+    },
+    {
+      "started_at": "2026-09-30T06:37:23.757Z",
+      "datasets": [
+        "2wiki",
+        "musique"
+      ],
+      "models": [
+        "qwen3.5:27b"
+      ],
+      "conditions": [
+        "recall_llm",
+        "rag_llm",
+        "recall_laya",
+        "rag_laya"
+      ],
+      "limit": null,
+      "questions_per_combo": 200,
+      "model_digests": {
+        "qwen3.5:27b": "7653528ba5cba4dd8e19da24aaddc7f4d0b5ecd93571c0825dfd4137958ec06e"
+      },
+      "loop": {
+        "max_hops": 4,
+        "timeout_s": 300.0,
+        "num_ctx": 8192,
+        "oom_retry_num_ctx": 4096,
+        "temperature": 0,
+        "think": false,
+        "keep_alive": "30m",
+        "sufficient_threshold": 0.5,
+        "rag_top_n": 3,
+        "max_evidence": 8
+      },
+      "seed": 42,
+      "git_commit": "25569ed782f134e4cd37cc68ffa649fed9561432",
+      "ollama_version": "0.34.4",
+      "laya_model_hash": "3c0aba0a00c69fc8c739e959ee4fb77b3cace926866d2834f0e28455617592e7"
+    },
+    {
+      "started_at": "2026-09-30T07:18:08.942Z",
+      "datasets": [
+        "2wiki",
+        "musique"
+      ],
+      "models": [
+        "qwen3.5:27b"
+      ],
+      "conditions": [
+        "recall_llm",
+        "rag_llm",
+        "recall_laya",
+        "rag_laya"
+      ],
+      "limit": null,
+      "questions_per_combo": 200,
+      "model_digests": {
+        "qwen3.5:27b": "7653528ba5cba4dd8e19da24aaddc7f4d0b5ecd93571c0825dfd4137958ec06e"
+      },
+      "loop": {
+        "max_hops": 4,
+        "timeout_s": 300.0,
+        "num_ctx": 8192,
+        "oom_retry_num_ctx": 4096,
+        "temperature": 0,
+        "think": false,
+        "keep_alive": "30m",
+        "sufficient_threshold": 0.5,
+        "rag_top_n": 3,
+        "max_evidence": 8
+      },
+      "seed": 42,
+      "git_commit": "25569ed782f134e4cd37cc68ffa649fed9561432",
+      "ollama_version": "0.34.4",
+      "laya_model_hash": "3c0aba0a00c69fc8c739e959ee4fb77b3cace926866d2834f0e28455617592e7"
+    }
+  ]
+}

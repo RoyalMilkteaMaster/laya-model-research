@@ -1,0 +1,33 @@
+\begin{tabular}{|l|r|r|r|r|r|}
+\hline
+\multicolumn{6}{|l|}{\emph{Panel A: Function-calling probe}} \\
+\hline
+Model & 27B & 9B & 4B & 2B & 0.8B \\
+\hline
+Items & 20 & 20 & 20 & 20 & 20 \\ % source=probe_results.json key=n models=qwen3.5:27b,qwen3.5:9b,qwen3.5:4b,qwen3.5:2b,qwen3.5:0.8b
+\hline
+Valid rate & 1.00 & 1.00 & 1.00 & 1.00 & 1.00 \\ % source=probe_results.json key=valid_tool_call_rate models=qwen3.5:27b,qwen3.5:9b,qwen3.5:4b,qwen3.5:2b,qwen3.5:0.8b
+\hline
+Latency (ms) & 836 & 309 & 235 & 178 & 134 \\ % source=probe_results.json key=mean_latency_ms models=qwen3.5:27b,qwen3.5:9b,qwen3.5:4b,qwen3.5:2b,qwen3.5:0.8b
+\hline
+\multicolumn{6}{|l|}{\emph{Panel B: Decision layer on held-out decisions}} \\
+\hline
+Question & & Acc. & Brier & ECE & MAE \\
+\hline
+\texttt{sufficient} & FT & 0.9271 & 0.1343 & 0.0626 & --- \\ % source=laya_eval_report.md question=sufficient model=微調
+\cline{2-6}
+ & ZS & 0.5915 & 0.5551 & 0.2271 & --- \\ % source=laya_eval_report.md question=sufficient model=zero-shot
+\hline
+\texttt{next\_action} & FT & 0.8333 & 0.3024 & 0.1339 & --- \\ % source=laya_eval_report.md question=next_action model=微調
+\cline{2-6}
+ & ZS & 0.3475 & 0.7587 & 0.2119 & --- \\ % source=laya_eval_report.md question=next_action model=zero-shot
+\hline
+\texttt{remaining\_hops} & FT & 0.8177 & --- & 0.1414 & 0.2013 \\ % source=laya_eval_report.md question=remaining_hops model=微調
+\cline{2-6}
+ & ZS & 0.3036 & --- & 0.3750 & 0.8783 \\ % source=laya_eval_report.md question=remaining_hops model=zero-shot
+\hline
+Overall & FT & 0.8594 & --- & 0.1114 & --- \\ % source=laya_eval_report.md overall model=微調
+\cline{2-6}
+ & ZS & 0.4142 & --- & 0.2703 & --- \\ % source=laya_eval_report.md overall model=zero-shot
+\hline
+\end{tabular}

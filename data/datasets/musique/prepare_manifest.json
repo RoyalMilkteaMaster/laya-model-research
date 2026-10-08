@@ -1,0 +1,44 @@
+{
+  "schema_version": "2",
+  "generator": {
+    "module": "multihop_benchmark.datasets.multihop_dataset_loader",
+    "version": "1"
+  },
+  "dataset": "musique",
+  "seed": 42,
+  "created_at": "2026-09-29T17:22:04Z",
+  "source": {
+    "repo": "dgslibisey/MuSiQue",
+    "config": "default",
+    "splits": {
+      "validation": {
+        "rows": 2417
+      },
+      "train": {
+        "rows": 19938
+      }
+    }
+  },
+  "files": {
+    "sample_200.jsonl": {
+      "sha256": "cd75c30497495471d4adee144f8cff4ce836e21a9d5517f474b4a4c39ecf9a02",
+      "line_count": 200
+    },
+    "train_800.jsonl": {
+      "sha256": "25d6f530ac8f9b81edc82aac2ed08d771e6701691a2e198efad6a926c63543b8",
+      "line_count": 800
+    },
+    "calibration_100.jsonl": {
+      "sha256": "46615f0800a50f71392c15d1a665e686607003ef7c4dd5734023dadd1ce645f4",
+      "line_count": 100
+    },
+    "test_100.jsonl": {
+      "sha256": "108d417f3a510801c25f36f9158927decf63168355be38ac6b8f389c24313ccb",
+      "line_count": 100
+    },
+    "corpus.jsonl": {
+      "sha256": "ea5de35d75d68070fd969c6e0f2c52dfc40a16dc7b3092f97a04cff4b6f48a5a",
+      "line_count": 3336
+    }
+  }
+}

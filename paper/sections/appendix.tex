@@ -1,0 +1,115 @@
+% Appendix (revision R9 round 2): after the References, from page 9, outside the 8-page budget.
+% A: implementation and reproducibility details (facts from manifest.json, spike_results.json, and
+% laya_eval_report.md; seed from paper/analysis/bootstrap_ci.csv). B: supplementary results; every
+% number comes from paper/analysis/error_taxonomy.csv, paper/analysis/bootstrap_ci.csv, summary.csv,
+% or the records of run main-20260930. The appendix tables are generated (error_taxonomy.py,
+% merge_tables.py) and cited only here; the main text cites the appendix sections, not these tables.
+% Identifiers are \texttt with \allowbreak after '/' (R9 round 3: \path spread them out in loose lines).
+\section{Implementation and Reproducibility Details}
+\label{sec:appendix}
+
+%% [§A ¶1]
+\textbf{Software and hardware.} Ollama~0.34.4 serves the language models (tags
+\texttt{qwen3.5:0.8b}, \texttt{:2b}, \texttt{:4b}, \texttt{:9b}, \texttt{:27b}) on an
+NVIDIA GeForce RTX 4090 under Ubuntu on WSL2 with Python~3.12. The embedder is
+\texttt{BAAI/\allowbreak bge-m3}, and the re-ranker is
+\texttt{BAAI/\allowbreak bge-reranker-\allowbreak v2-m3}. A FAISS flat inner-product
+index runs on the CPU. Because the 27B model ran fully on the GPU, BGE-M3, the re-ranker,
+and Laya also remained on the GPU in all 60 configurations. We obtain the datasets from
+Hugging Face (MuSiQue as \texttt{musique-ans}) and convert them to a common schema.
+AG2~1.1.0 could not disable thinking in our setting, so we implement the loop directly
+with the Ollama Python client.
+
+%% [§A ¶2]
+\textbf{Decision-layer training.} Each simulated state presents a passage both as a full
+paragraph and as its supporting sentences (MuSiQue keeps the full paragraph). This exposes
+the layer to retrieved and recall-like evidence. We fine-tune the decision layer from
+\texttt{convaiinnovations/\allowbreak laya-multilingual} (322M parameters, input length 1024 tokens) on
+32{,}451 simulated decisions and calibrate it on 3{,}996, in 10.8\,min.
+Laya's reinforcement learning~\cite{laya} adds Gaussian noise to option logits for
+exploration. A strictly proper scoring rule rewards each sample against its weak label.
+Advantages use a group baseline, and a soft cross-entropy term guides training. We then
+fit one temperature per question type on the calibration split. All three reached
+5.0, the upper end of the search range (Section~\ref{sec:disc:limits}).
+
+%% [§A ¶3]
+\textbf{Records and post-processing.} For each question, we log the prediction,
+correctness, per-step trace (sub-questions, retrieved passage ids, Laya outputs), latency,
+tokens, and peak GPU memory. All results come from these records, the probe output, and
+the Laya evaluation report. Post-processing scripts reproduce the paired bootstrap
+intervals (seed 20261001), error taxonomy, and all result tables with identical bytes
+on every run. Questions that run out of GPU memory are retried once with a 4096-token
+context and recorded as \texttt{oom} if they fail again. Licenses are CC~BY-SA~4.0 for
+HotpotQA, CC~BY~4.0 for MuSiQue, MIT for BGE-M3, and Apache-2.0 for 2WikiMultihopQA,
+Laya, Qwen3.5, and the BGE re-ranker.
+
+%% [§A ¶4]
+\textbf{Run accounting.} The single \texttt{error} (9B, 2Wiki, RAG+LLM) was a malformed
+tool-call XML reply. A question answered after $k$ sub-questions has $k+1$ hops unless
+it reaches $H_{\max}$. Laya never stopped at the first hop, when evidence was empty.
+Failed questions count hops only up to failure, lowering the 0.8B model's mean under
+LLM control. Only two questions reached the 300\,s budget (2Wiki, 27B, RAG+LLM).
+They timed out three times in total, one of them twice. Both eventually finished after
+extra retries that no other question received. Thus, the final \texttt{timeout\_rate}
+is zero in every configuration.
+
+
+\section{Supplementary Results}
+\label{sec:appendix:results}
+
+%% [§B ¶1]
+% Rules of paper/analysis/error_taxonomy.py (docstring), checked in this order.
+\textbf{Error taxonomy rules.} Each wrong answer under retrieval receives one category,
+checked in the following order. A failed call has final status \texttt{invalid\_tool},
+\texttt{timeout}, or \texttt{error}. Evidence covered means that every gold supporting
+paragraph was retrieved at some hop. A premature stop leaves a gold paragraph missing
+when the last step stops the loop (Laya's $p_{\mathrm{suf}}\ge0.5$ or the LLM's
+\texttt{final\_answer}). A retrieval miss leaves a gold paragraph missing even though
+the last step still retrieved. Remaining cases are classified as other.
+Table~\ref{tab:error_taxonomy_by_dataset} reports counts per dataset, and
+Table~\ref{tab:error_taxonomy} pools them.
+
+%% [§B ¶2]
+\tableorplaceholder[\scriptsize]{error_taxonomy_by_dataset}{Wrong answers under retrieval by
+stage, per dataset (200 questions per row). Columns follow
+Table~\ref{tab:error_taxonomy}.}
+
+%% [§B ¶3]
+% Case from records hotpotqa__qwen3.5-27b__rag_{laya,llm}.jsonl, question_id
+% 5abb2f2f554299232ef4a3d7 (gold paragraphs: Harry Emerson Fosdick, Riverside Church).
+\textbf{A representative premature stop} (HotpotQA, 27B). The question was \dq{Harry
+Emerson Fosdick was called to serve as pastor at a church that opened its doors on what
+date?} The first hop retrieved the paragraph on Fosdick but not the one on Riverside
+Church. Laya then judged the evidence sufficient ($p_{\mathrm{suf}}=0.983$), and the
+model answered that the information was unavailable. Under its own control, the same
+model next asked \dq{When did Riverside Church open its doors?} and answered correctly
+(October 5, 1930).
+
+%% [§B ¶4]
+% CI numbers from paper/analysis/bootstrap_ci.csv.
+\textbf{Intervals including zero; recall and retrieval effects.} Under RAG, the CI for the
+Laya effect (Table~\ref{tab:main_results_panels}, Panel~B) includes zero for 2B on 2Wiki
+($[-3.5, 6.5]$) and MuSiQue ($[0.0, 8.0]$), 9B on HotpotQA, and 27B on MuSiQue.
+Table~\ref{tab:effects_recall_retrieval} lists the
+controller effect under recall ($\Delta_{\mathrm{Rec}}$ = Recall+Laya minus Recall+LLM) and
+the retrieval effect ($\Delta_{\mathrm{Ret}}$ = RAG+LLM minus Recall+LLM) with paired
+bootstrap 95\% CIs. The $\Delta_{\mathrm{Rec}}$ CI excludes zero only for 0.8B on HotpotQA
+and 2Wiki. The $\Delta_{\mathrm{Ret}}$ CI excludes zero in every pair except 0.8B on 2Wiki
+($[-1.0, 8.0]$).
+
+%% [§B ¶5]
+\tableorplaceholder[\scriptsize]{effects_recall_retrieval}{Recall effect
+$\Delta_{\mathrm{Rec}}$ and retrieval effect $\Delta_{\mathrm{Ret}}$ on EM (pp), estimate
+[paired bootstrap 95\% CI], per model and dataset.}
+
+%% [§B ¶6]
+\textbf{Costs under recall and tail latency.} Recall+Laya also uses fewer prompt tokens
+than Recall+LLM (Table~\ref{tab:efficiency_panels}). Its stopping decision requires no
+extra LLM call, which partly explains this reduction. Under recall, p50 latency falls on
+every dataset only for 0.8B and 2B (for example, 1277 versus 2733\,ms for 2B on
+HotpotQA). Table~\ref{tab:efficiency_p95} reports end-to-end p95 latency alongside the
+p50 results in Table~\ref{tab:efficiency_panels}.
+
+%% [§B ¶7]
+\tableorplaceholder[\scriptsize]{efficiency_p95}{End-to-end p95 latency (ms) per model,
+condition, and dataset.}

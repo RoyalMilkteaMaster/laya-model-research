@@ -1,0 +1,174 @@
+% Calibrated loop control for multi-hop QA with small language models (CVPR/AVSS camera-ready format).
+% Build: tectonic paper/main.tex   (see paper/README.md; Overleaf fallback documented there)
+%
+% Paragraph markers: every English paragraph/float is preceded by a comment line
+% "%% [§<section> ¶<n>]". paper/zh-TW/main.md carries the same markers as
+% "<!-- EN: §<section> ¶<n> -->" so the two versions can be aligned mechanically
+% (paper/check_paper.sh verifies this).
+%
+% The paper contains no placeholders; paper/check_paper.sh fails on any leftover marker.
+% Revision R9: CVPR author kit (cvpr.sty 2026, ieeenat_fullname.bst), the layout of the reference
+% paper (IEEE AVSS 2025): camera-ready with page numbers, numbered sections, captions "Table 1." above
+% and "Figure 1." below, full-name references at 10 pt, and no keywords.
+% Authors use the CVPR kit's separate author blocks, with an ORCID link for each author.
+% R9 round 2: main text + References = exactly 8 pages, page 8 filled; then, from page 9 and outside the
+% page budget, Appendix A (implementation and reproducibility details) and B (supplementary results).
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+% Camera-ready version with page numbers, as in the reference paper. cvpr.sty loads times, xcolor,
+% graphicx, amsmath, amssymb, booktabs, natbib [numbers,sort&compress], caption, url, and enumitem.
+\usepackage[pagenumbers]{cvpr}
+% T1 encoding under both engines: Type 1 Times (NimbusRomNo9L, as in the reference paper) and
+% \textquotedbl (the straight quote of \dq) under XeTeX (tectonic) as well as pdfLaTeX (Overleaf).
+\usepackage[T1]{fontenc}
+% cvpr.sty sets \hfuzz=30pt; restore the LaTeX default so that every Overfull \hbox is reported
+% (paper/check_paper.sh fails on any).
+\hfuzz=0.1pt
+% The reference paper indents every paragraph, also the first one after a heading and the abstract
+% (the 2026 kit starts the abstract with \noindent).
+\usepackage{indentfirst}
+\patchcmd{\abstract}{\noindent}{}{}{\PackageError{main}{cvpr.sty abstract patch failed}{}}
+
+\usepackage{amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+% One-line conditional for Algorithm 1: \IfThen{<condition>}{<statement>}.
+\algnewcommand{\IfThen}[2]{\State \algorithmicif\ #1\ \algorithmicthen\ #2}
+% Blocks end by indentation (no "end if" / "end for" lines), to fit the narrow CVPR column.
+\algtext*{EndIf}
+\algtext*{EndFor}
+
+\usepackage{textcomp}
+% Fixed-width aligned columns of the ruled Table 3 panels (R9 round 3; >{\raggedleft\arraybackslash}p{...}).
+\usepackage{array}
+
+% The Appendix A heading must not break as "De-tails" (R9 round 2) nor be stretched across the column:
+% section headings are set ragged right (one-line headings are unchanged).
+\hyphenation{Details}
+\makeatletter
+\patchcmd{\cvprsection}{\large\bf}{\large\bf\raggedright}{}{\PackageError{main}{cvpr.sty section patch failed}{}}
+\makeatother
+
+
+% The CVPR kit's preamble.tex: microtype "works harder in optimizing text layout"; enabled at the end
+% of writing to stay within the page limit (revision R9).
+\usepackage{microtype}
+% R9 round 2: paper/check_paper.sh reads the end of the References from main.aux: \label{refs-end} gives the
+% page, \zsavepos{refs-end} the position of the last reference line (page 8 must be filled).
+\usepackage{zref-savepos}
+\AtEndEnvironment{thebibliography}{\label{refs-end}\zsavepos{refs-end}}
+
+
+% ---------------------------------------------------------------------------
+% Table/figure hook macros
+% ---------------------------------------------------------------------------
+% Visible red marker shown only when a generated table/figure file is absent.
+\newcommand{\missingfile}[1]{\textcolor{red}{\textbf{[MISSING FILE: #1]}}}
+
+% Contract with Ticket 11 (fixed by the Coordinator):
+%   paper/tables/<stem>.tex  = a bare tabular only (booktabs rules allowed); no table
+%                              float, no \caption, no \label.
+%   paper/figures/<stem>.pdf = the figure itself.
+% The macros below always build the float, caption, and label; the only difference
+% between "file present" and "file absent" is the body (the file or a red marker).
+
+% \tableorplaceholder[<font size>]{<file stem>}{<caption>} -> Table with \label{tab:<file stem>}
+% The generated ruled tables carry no @{} padding; their cell padding is \tabcolsep = 2.5pt, set here
+% (R9 round 3), so that every \cline and \multicolumn meets the vertical rules.
+% (one column, top float). \widetableorplaceholder is the same as a two-column table* (revision
+% R8: the efficiency panels). Main-text tables are cited in the main text and placed there; the
+% appendix tables (R9 round 2) are cited and placed in the appendix.
+\newcommand{\tableorplaceholder}[3][]{%
+  \begin{table}[t]
+    \centering
+    \caption{#3}
+    \label{tab:#2}#1\setlength{\tabcolsep}{2.5pt}%
+    \IfFileExists{tables/#2.tex}{\input{tables/#2.tex}}{%
+      \fbox{\parbox{0.92\columnwidth}{\centering\missingfile{\url{tables/#2.tex}}}}}
+  \end{table}}
+\newcommand{\widetableorplaceholder}[3][]{%
+  \begin{table*}[t]
+    \centering
+    \caption{#3}
+    \label{tab:#2}#1\setlength{\tabcolsep}{2.5pt}%
+    \IfFileExists{tables/#2.tex}{\input{tables/#2.tex}}{%
+      \fbox{\parbox{0.92\textwidth}{\centering\missingfile{\url{tables/#2.tex}}}}}
+  \end{table*}}
+
+% \figureorplaceholder[<width>]{<file stem>}{<caption>} -> Figure with \label{fig:<file stem>}
+\newcommand{\figureorplaceholder}[3][\columnwidth]{%
+  \begin{figure}[t]
+    \centering
+    \IfFileExists{figures/#2.pdf}{\includegraphics[width=#1]{figures/#2.pdf}}{%
+      \fbox{\parbox[c][3cm][c]{0.92\columnwidth}{\centering\missingfile{\url{figures/#2.pdf}}}}}
+    \caption{#3}
+    \label{fig:#2}
+  \end{figure}}
+
+% \subfigureorplaceholder[<width>]{<file stem>}{<caption>} -> a panel (default one third of the
+% text width) for use inside a figure* float; each panel keeps its own caption, number, and
+% \label{fig:<file stem>}.
+\newcommand{\subfigureorplaceholder}[3][0.32\textwidth]{%
+  \begin{minipage}[t]{#1}
+    \centering
+    \IfFileExists{figures/#2.pdf}{\includegraphics[width=\linewidth]{figures/#2.pdf}}{%
+      \fbox{\parbox[c][3cm][c]{0.92\linewidth}{\centering\missingfile{\url{figures/#2.pdf}}}}}
+    \caption{#3}
+    \label{fig:#2}
+  \end{minipage}}
+
+\newcommand{\cond}[1]{\textsc{#1}}
+% Straight double quotes (U+0022). A literal " would become a curly quote through the TeX
+% ligature mapping, so quoted text is written \dq{...}.
+\newcommand{\dq}[1]{\textquotedbl{}#1\textquotedbl{}}
+
+% The added ORCID row uses one author line (14 pt). Reuse 14 pt of the title-to-author
+% gap so the author details fit without changing the text area's height or pagination.
+\makeatletter
+\patchcmd{\@maketitle}{\vspace*{24pt}}{\vspace*{10pt}}{}{\PackageError{main}{CVPR title spacing patch failed}{}}
+\makeatother
+
+% hyperref last, as in the CVPR kit; the reference paper's link colours (hyperref defaults:
+% red internal links, green citations); no page back-references in the camera-ready version.
+\usepackage[breaklinks,colorlinks]{hyperref}
+
+\begin{document}
+
+\title{Calibrated Loop Control for Multi-Hop QA with Small Language Models}
+
+% Separate author blocks follow the official CVPR kit. Each author's name, affiliation,
+% email, and ORCID occupy corresponding rows; ORCID links are black in print.
+\author{Pin-Hung Lin\\
+National Cheng Kung University\\
+{\tt\small f84076029@gs.ncku.edu.tw}\\
+{\small\hypersetup{urlcolor=black}\url{https://orcid.org/0009-0000-1916-7829}}
+\and
+Te-Lun Yang\\
+National Taiwan University\\
+{\tt\small d12944007@ntu.edu.tw}\\
+{\small\hypersetup{urlcolor=black}\url{https://orcid.org/0000-0002-3351-1785}}}
+
+\maketitle
+
+\input{sections/abstract}
+\input{sections/introduction}
+\input{sections/related_work}
+\input{sections/method}
+\input{sections/experiments}
+\input{sections/discussion}
+\input{sections/conclusion}
+
+% ieeenat_fullname.bst (CVPR kit): full author names; reference titles are not quoted. Normal size
+% (10 pt), as in the reference paper (R9 round 2).
+\bibliographystyle{ieeenat_fullname}
+\bibliography{refs}
+
+% Appendix (R9 round 2): after the References, from a new page (page 9), outside the 8-page budget.
+% cvpr.sty numbers the appendix sections "A.", "B.". Main-text tables are cited in the main text;
+% the appendix tables are cited only in the appendix (paper/check_paper.sh checks both).
+\clearpage
+\appendix
+\input{sections/appendix}
+
+
+\end{document}

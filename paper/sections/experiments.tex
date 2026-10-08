@@ -1,0 +1,166 @@
+% Every number in this section comes from <Data Root>/runs/main-20260930/summary.csv,
+% runs/main-20260930/probe_results.json, runs/laya_eval/laya_eval_report.{md,json}
+% (run_id main-20260930), paper/analysis/bootstrap_ci.csv, or paper/analysis/error_taxonomy.csv.
+% tables/*.tex and figures/*.pdf are generated (figures and the older tables by
+% `multihop-benchmark aggregate`, Ticket 11; the R8 panel tables by paper/analysis/merge_tables.py;
+% tables/error_taxonomy.tex by paper/analysis/error_taxonomy.py) and are not edited by hand; each
+% tables/<stem>.tex is a bare tabular and \tableorplaceholder / \widetableorplaceholder add the
+% float, caption, and \label{tab:<stem>} (figures: \label{fig:<stem>}); see main.tex.
+\section{Experimental Results}
+\label{sec:experiments}
+
+\subsection{Setup}
+\label{sec:exp:setup}
+
+%% [§4.1 ¶1]
+Each of the 60 configurations ran once on 200 questions, giving 12{,}000 evaluations
+(Section~\ref{sec:method:impl} and Table~\ref{tab:conditions}). EM and F1 are
+percentages, and differences are percentage points (pp). One correct answer adds
+0.5\,pp EM. Sections~\ref{sec:exp:main} and~\ref{sec:exp:efficiency} address RQ1
+and RQ2, and paragraphs marked RQ3 examine model size. Section~\ref{sec:exp:errors}
+analyses errors. Section~\ref{sec:discussion} answers the RQs.
+
+\subsection{Function-Calling Probe and Decision-Layer Quality}
+\label{sec:exp:laya}
+
+%% [§4.2 ¶1]
+Every model made valid tool calls on all 20 probe items
+(Table~\ref{tab:controller_probe}, Panel~A), with mean latency from 134\,ms (0.8B)
+to 836\,ms (27B). This probe used one tool and single-hop questions. It did not predict
+the main results, where the 0.8B model's \texttt{invalid\_tool} rate under LLM control
+was 0.290--0.550. Other models stayed at or below 0.030 in every configuration.
+
+%% [§4.2 ¶2]
+The decision layer met all thresholds in Section~\ref{sec:method:weak}
+(Table~\ref{tab:controller_probe}, Panel~B). Accuracy reached 0.9271 on
+\texttt{sufficient} (+0.3356 over zero-shot) and 0.8333 on \texttt{next\_action}
+(+0.4859). MAE on \texttt{remaining\_hops} was 0.2013. For \texttt{sufficient}, the
+Brier score fell from 0.5551 to 0.1343 and ECE from 0.2271 to 0.0626. All fitted
+temperatures reached 5.0, the upper bound of the search range. A call answering all three
+questions had a median latency of 12.6\,ms (zero-shot: 13.2\,ms).
+
+%% [§4.2 ¶3]
+\tableorplaceholder[\scriptsize]{controller_probe}{Function-calling probe with mean
+latency per call (Panel A). Decision-layer quality on 4{,}032 held-out decisions
+(Panel B), fine-tuned (FT) versus zero-shot (ZS): Brier for \texttt{sufficient} and
+\texttt{next\_action}, MAE for \texttt{remaining\_hops}.}
+
+\subsection{Main Results (RQ1)}
+\label{sec:exp:main}
+
+\begin{figure*}[t]
+%% [§4.3 ¶1]
+  \subfigureorplaceholder[0.3\textwidth]{em_vs_size_hotpotqa}{EM by model size, HotpotQA.}\hfill
+%% [§4.3 ¶2]
+  \subfigureorplaceholder[0.3\textwidth]{em_vs_size_2wiki}{EM by model size, 2Wiki.}\hfill
+%% [§4.3 ¶3]
+  \subfigureorplaceholder[0.3\textwidth]{em_vs_size_musique}{EM by model size, MuSiQue.}
+\end{figure*}
+
+%% [§4.3 ¶4]
+Table~\ref{tab:main_results_panels} (Panel~A) reports EM and F1, and
+Figs.~\ref{fig:em_vs_size_hotpotqa}--\ref{fig:em_vs_size_musique} show EM by model
+size. The evidence source has the largest effect. RAG+LLM exceeds Recall+LLM for every
+model and dataset, by 19.0--43.5\,pp EM on HotpotQA, 3.5--36.5\,pp on 2Wiki, and
+3.5--30.0\,pp on MuSiQue. RAG+LLM with 27B performs best throughout (EM 67.5, 68.5,
+and 37.0, respectively). No model exceeds 10.0 EM without retrieval on MuSiQue, the
+hardest dataset.
+
+%% [§4.3 ¶5]
+\tableorplaceholder[\scriptsize]{main_results_panels}{Main results, 200 questions per cell.
+Panel A: EM / F1 (\%). Panel B: controller effects on EM (pp) with paired bootstrap 95\% CIs:
+$\Delta_{\mathrm{RAG}}$ = RAG+Laya minus RAG+LLM, and the interaction
+$\Delta_{\mathrm{int}}$ = $\Delta_{\mathrm{RAG}}$ minus $\Delta_{\mathrm{Rec}}$, where
+$\Delta_{\mathrm{Rec}}$ = Recall+Laya minus Recall+LLM (Appendix~\ref{sec:appendix:results}).}
+
+%% [§4.3 ¶6]
+\textbf{Model size (RQ3).} Under recall, Laya changes EM by $-2.0$ to $+2.5$\,pp for
+the 2B--27B models, equivalent to at most five questions. The 0.8B model's EM point
+estimates rise by 5.5, 8.0, and 0.5\,pp on HotpotQA, 2Wiki, and MuSiQue. Under
+retrieval, the effect depends on size. RAG+Laya falls below RAG+LLM
+by 3.5--15.5\,pp EM on every dataset for the 4B, 9B, and 27B models. The largest
+drops occur on 2Wiki ($-15.5$, $-14.5$, and $-12.5$\,pp, respectively). For the 2B
+and 0.8B models, RAG+Laya gives the highest EM point estimates on every dataset,
+exceeding RAG+LLM by 1.5--9.0\,pp. On HotpotQA, EM rises from 40.0 to 47.5 for 2B
+and from 23.0 to 30.5 for 0.8B. The interaction point estimate is negative for all nine
+combinations of larger models and datasets, and positive for all six with smaller
+models. F1 changes in the same direction.
+
+%% [§4.3 ¶7]
+% CI numbers from paper/analysis/bootstrap_ci.csv (paper/analysis/bootstrap_ci.py).
+\textbf{Sampling uncertainty.} Under RAG, the CI for Laya's effect excludes zero in
+eleven of the fifteen combinations of models and datasets
+(Table~\ref{tab:main_results_panels}, Panel~B). These include 0.8B on all three
+datasets (lower bounds of 2.0--4.5\,pp), seven of the nine combinations with larger
+models, and 2B only on HotpotQA ($[3.0, 12.5]$). Interaction CIs exclude zero in six
+of nine combinations with larger models, all negative, and two of six with smaller
+models, both positive (2B on HotpotQA and 0.8B on MuSiQue).
+Appendix~\ref{sec:appendix:results} lists intervals including zero and the controller
+effect under recall and the retrieval effect.
+
+\subsection{Error Analysis}
+\label{sec:exp:errors}
+
+%% [§4.4 ¶1]
+% Counts and shares from paper/analysis/error_taxonomy.csv (dataset=all rows pool the three
+% datasets; share = count / wrong answers of the model and condition).
+Table~\ref{tab:error_taxonomy} classifies wrong answers under retrieval by stage using
+gold supporting paragraphs (rules in Appendix~\ref{sec:appendix:results}). Categories
+cover failed calls, complete evidence, premature stops, and retrieval misses after four
+hops. Under RAG+Laya, premature stops are the most frequent
+category for every model: 194--230 questions, or 45.4--65.0\% of wrong answers, compared
+with 0--56 under RAG+LLM. Under RAG+LLM, the 4B--27B models most often fail despite
+having retrieved all gold evidence (47.9--58.5\%). The 2B model mainly fails to retrieve
+the evidence within $H_{\max}$ (315 questions, 73.1\%). The 0.8B model mainly fails
+through retrieval misses (247) and invalid tool calls (211). Laya reduces retrieval
+misses from 315 to 78 for 2B and from 247 to 108 for 0.8B. However, premature stopping
+becomes the main source of error for every model.
+
+%% [§4.4 ¶2]
+Appendix~\ref{sec:appendix:results} gives the counts per dataset and a representative
+premature stop.
+
+%% [§4.4 ¶3]
+\tableorplaceholder[\scriptsize]{error_taxonomy}{Wrong answers under retrieval by stage,
+pooled over the three datasets (600 questions per row): invalid tool call (Inv.), timeout
+(T/O), error (Err.), retrieval miss after all hops (Miss), all gold evidence retrieved
+(Cov.), premature stop with gold evidence missing (Stop), and other (Oth.).}
+
+\subsection{Efficiency (RQ2)}
+\label{sec:exp:efficiency}
+
+%% [§4.5 ¶1]
+\widetableorplaceholder[\scriptsize]{efficiency_panels}{Efficiency per model and condition,
+one panel per dataset: end-to-end p50 latency (ms), device-wide peak GPU memory (VRAM, MB),
+mean prompt (In) and output (Out) tokens per question, mean hops, and mean latency per Laya
+call (ms).}
+
+\begin{figure*}[t]
+%% [§4.5 ¶2]
+  \subfigureorplaceholder[0.31\textwidth]{latency_vs_size}{End-to-end p50 latency (log scale)
+  by model size.}\hfill
+%% [§4.5 ¶3]
+  \subfigureorplaceholder[0.45\textwidth]{hops_distribution}{Hops per question by condition,
+  pooled over models and datasets; the stopping hop is counted.}
+\end{figure*}
+
+%% [§4.5 ¶4]
+RAG+Laya uses fewer prompt tokens, output tokens, and hops than RAG+LLM throughout
+(Table~\ref{tab:efficiency_panels}). Mean prompt tokens fall from 2{,}776--6{,}067
+to 1{,}565--2{,}329, and mean hops from 2.67--4.00 to 2.36--2.94. Under its own
+control with retrieval, 2B almost always reaches $H_{\max}$ (mean hops of 3.98, 4.00,
+and 4.00). For 0.8B--9B, RAG+Laya lowers p50 latency on every dataset
+(Fig.~\ref{fig:latency_vs_size}), for example from 1880 to 657\,ms for 2B on HotpotQA.
+Laya calls for these models average 16.0--20.8\,ms across conditions. All one-hop
+outcomes under LLM control are \texttt{invalid\_tool} failures, not deliberate stops
+(Fig.~\ref{fig:hops_distribution}). RAG+Laya most often stops at hop~2.
+Appendix~\ref{sec:appendix:results} reports recall costs and p95 latency.
+
+%% [§4.5 ¶5]
+\textbf{Model size (RQ3).} The 27B model is the exception. Its Laya calls took
+361.3--1261.4\,ms on average. RAG+Laya had higher p50 latency than RAG+LLM on HotpotQA
+(13482 versus 11918\,ms) and 2Wiki (11490 versus 11044\,ms). With the 27B model,
+retrieval components, and Laya sharing the 24\,GB GPU, peak memory use reached
+23{,}526--24{,}461\,MB. These slow calls are consistent with memory pressure rather
+than the decision model's usual latency (a held-out median of 12.6\,ms). Memory
+pressure therefore complicates latency comparisons involving Laya at 27B.

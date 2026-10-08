@@ -1,0 +1,22 @@
+% Numbers only from summary.csv and laya_eval_report.md of run main-20260930 and from
+% paper/analysis/error_taxonomy.csv.
+\begin{abstract}
+%% [§0 ¶1]
+Small language models (SLMs) often stop multi-hop question-answering loops too early,
+retrieve unnecessarily, or misuse tools. Most adaptive retrieval methods rely on the
+generator's signals. When should an external calibrated controller take over?
+We study Laya, a compact non-autoregressive decision model with calibrated outputs. At
+each hop, it predicts whether the evidence is sufficient, what to do next, and how much
+evidence is missing. Our $2\times2$ factorial design uses a fixed decomposition loop
+with two evidence sources and two controllers. Evidence comes from closed-book recall
+or retrieval-augmented generation (RAG) with re-ranking. The generating large language
+model (LLM) or Laya controls the loop. We evaluate five Qwen3.5 models (0.8B to 27B
+parameters) on HotpotQA, 2WikiMultihopQA, and MuSiQue, using 200 questions per
+configuration. Trained on weak labels, Laya achieves 0.9271 held-out accuracy on evidence
+sufficiency. Retrieval improves exact match (EM) by up to 43.5 percentage points. Under
+RAG, Laya raises EM point estimates by 1.5--9.0 points for the 0.8B and 2B models but
+lowers EM by 3.5--15.5 points for the 4B--27B models. It reduces prompt tokens and hops
+throughout. Its most frequent error is stopping before all gold evidence is retrieved.
+The accuracy-efficiency trade-off of external control therefore depends on model size.
+\end{abstract}
+

@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "Please cite this research artifact and the accompanying manuscript when using the code or results. Also cite the upstream datasets and Laya."
+type: software
+title: "Laya Multi-Hop QA: Code and Reproducible Results"
+authors:
+  - family-names: Lin
+    given-names: Pin-Hung
+  - family-names: Yang
+    given-names: Te-Lun
+repository-code: "https://github.com/RoyalMilkteaMaster/laya-multihop-qa"
+url: "https://github.com/RoyalMilkteaMaster/laya-multihop-qa"
+version: 1.0.0
+date-released: 2026-10-09
+license: MIT
+keywords:
+  - multi-hop question answering
+  - retrieval-augmented generation
+  - Laya
+  - reproducibility
+  - loop control

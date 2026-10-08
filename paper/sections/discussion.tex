@@ -1,0 +1,78 @@
+% Numbers only from summary.csv, probe_results.json, laya_eval_report.md,
+% paper/analysis/bootstrap_ci.csv (CIs), and paper/analysis/error_taxonomy.csv of
+% run main-20260930; run-process facts (resumes, timeouts, the single error)
+% come from manifest.json and the run log and carry no result numbers.
+% Each RQ is answered in the same order: answer, evidence, explanation, boundary, implication.
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Answers to the Research Questions}
+\label{sec:disc:rq}
+
+%% [§5 ¶1]
+\textbf{RQ1 (Accuracy).} Laya changed EM mainly under retrieval, with effects depending
+on model size. Under recall, EM changed by $-2.0$ to $+2.5$\,pp for 2B--27B,
+suggesting that available evidence limits performance more than loop control.
+The 0.8B point estimates rose by up to 8.0\,pp. Under retrieval, RAG+Laya exceeded
+RAG+LLM by 1.5--9.0\,pp in EM point estimates for 2B and 0.8B, but fell below it
+by 3.5--15.5\,pp for 4B--27B
+(Table~\ref{tab:main_results_panels}). CIs excluded zero for 0.8B on every dataset,
+seven of nine combinations with larger models, and 2B only on HotpotQA. Stopping helps
+explain this difference. For every model, RAG+Laya most often failed by stopping with
+gold evidence missing. Under LLM control, most errors followed complete evidence or the hop limit
+(Section~\ref{sec:exp:errors}). The 0.8B gain also coincided with a different tool
+protocol: its \texttt{invalid\_tool} rate was 0.290--0.550 with LLM control and two
+tools, but 0.000 with Laya and one tool. This does not explain the 2B gain, as its rate
+was at most 0.015. Held-out controller quality (\texttt{sufficient} accuracy 0.9271,
+ECE 0.0626) was measured on simulated states. The 2B gain remains uncertain on 2Wiki
+and MuSiQue. Loop control should be
+evaluated together with the evidence source and tool protocol.
+
+%% [§5 ¶2]
+\textbf{RQ2 (Cost).} With retrieval, external control reduced tokens and hops in every
+configuration and lowered p50 latency for 0.8B--9B. Mean prompt tokens fell from
+2{,}776--6{,}067 to 1{,}565--2{,}329 (Table~\ref{tab:efficiency_panels}). Laya calls
+averaged 16.0--20.8\,ms for these models across conditions.
+Apart from the 0.8B model's invalid calls, tool calls were reliable, with one
+\texttt{error} and no \texttt{oom}. Earlier stopping explains the savings. RAG+Laya
+most often stopped at hop~2 (Fig.~\ref{fig:hops_distribution}), without an extra LLM
+call for the stopping decision. The LLM still generated the answer. Under its own
+control with retrieval, 2B almost always reached $H_{\max}$. At 27B,
+memory pressure complicates latency comparisons (run accounting is in
+Appendix~\ref{sec:appendix}). These consistent savings justify external control only
+where accuracy is maintained (RQ3).
+
+%% [§5 ¶3]
+\textbf{RQ3 (Scale).} External control had opposite accuracy effects across model sizes,
+but saved tokens and hops throughout. Interaction point estimates were negative in
+all nine combinations with the three larger models and positive in all six with the
+two smaller models. CIs excluded zero in six of nine negative and two of six positive
+cases. Under its own control with retrieval, 2B almost never chose to stop. The
+4B--27B models used more hops than under Laya (for example,
+3.19--3.42 versus 2.53--2.55 on 2Wiki) and achieved higher EM. These runs do not
+identify a mechanism. For 4B--27B, Laya stopped with gold evidence missing on 194--230
+questions that were then answered incorrectly. Possible
+causes include the fixed threshold of 0.5 with temperatures at the search limit (5.0),
+differences between simulated and retrieved states, and bridging facts lost through
+\textsc{BuildState}'s truncation. Smaller models' gains are consistent with one available
+tool and difficulty judging when to stop. External control may help small models manage
+the loop while ending stronger models' searches too early. This reversal was observed
+with one model family, loop, and threshold. Benefits should be evaluated at each size
+rather than assumed to carry over.
+
+\subsection{Limitations}
+\label{sec:disc:limits}
+
+%% [§5 ¶4]
+With thinking disabled, we cannot compare Recall+LLM with a thinking-enabled
+baseline. Each corpus contains paragraphs from only 200 test questions, rather than full
+Wikipedia, potentially making retrieval easier than in open-domain settings. Each
+configuration ran once with one seed. Bootstrap intervals capture variation across
+questions, not runs. Differences up to 2\,pp (four questions) should not be
+over-interpreted. We used only Qwen3.5 models and English datasets, excluding translated
+datasets, cloud models, human evaluation, a zero-shot Laya condition, and Laya as a
+passage re-ranker. Supporting-paragraph annotations supplied weak labels to train one
+shared Laya on 800 questions per dataset. All results depend on the shared loop. Gold
+paragraphs serve as a proxy for sufficient evidence, although answers may not require
+all of them. All fitted temperatures reached the search limit (5.0), so the reported
+ECE does not establish optimal calibration.

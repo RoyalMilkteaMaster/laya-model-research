@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-09",
+  "scope": "GPU smoke only; original local checkpoint and HotpotQA index reused; no retraining",
+  "model": "qwen3.5:0.8b",
+  "dataset": "hotpotqa",
+  "questions_per_condition": 2,
+  "record_schema_validation": "PASS",
+  "execution": "8 scheduled questions produced 8 valid records",
+  "answer_status_counts": {
+    "done": 6,
+    "invalid_tool": 2
+  },
+  "controller_integration_test": "1 passed",
+  "all_answers_successful": false,
+  "note": "Two model outputs were invalid tool calls; they are reported as failures and were not retried for publication. Smoke outputs are separate from paper data.",
+  "comparisons": [
+    {
+      "question_id": "5ac2cdaa554299657fa29070",
+      "condition": "rag_laya",
+      "new_status": "done",
+      "original_status": "done",
+      "new_em": 0,
+      "original_em": 0
+    },
+    {
+      "question_id": "5a793bc95542994bb9456fc3",
+      "condition": "rag_laya",
+      "new_status": "done",
+      "original_status": "done",
+      "new_em": 1,
+      "original_em": 1
+    },
+    {
+      "question_id": "5ac2cdaa554299657fa29070",
+      "condition": "rag_llm",
+      "new_status": "invalid_tool",
+      "original_status": "invalid_tool",
+      "new_em": 0,
+      "original_em": 0
+    },
+    {
+      "question_id": "5a793bc95542994bb9456fc3",
+      "condition": "rag_llm",
+      "new_status": "done",
+      "original_status": "done",
+      "new_em": 0,
+      "original_em": 0
+    },
+    {
+      "question_id": "5ac2cdaa554299657fa29070",
+      "condition": "recall_laya",
+      "new_status": "done",
+      "original_status": "done",
+      "new_em": 0,
+      "original_em": 0
+    },
+    {
+      "question_id": "5a793bc95542994bb9456fc3",
+      "condition": "recall_laya",
+      "new_status": "done",
+      "original_status": "done",
+      "new_em": 0,
+      "original_em": 0
+    },
+    {
+      "question_id": "5ac2cdaa554299657fa29070",
+      "condition": "recall_llm",
+      "new_status": "invalid_tool",
+      "original_status": "invalid_tool",
+      "new_em": 0,
+      "original_em": 0
+    },
+    {
+      "question_id": "5a793bc95542994bb9456fc3",
+      "condition": "recall_llm",
+      "new_status": "done",
+      "original_status": "done",
+      "new_em": 0,
+      "original_em": 0
+    }
+  ]
+}

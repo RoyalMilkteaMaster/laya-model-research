@@ -1,0 +1,45 @@
+\begin{tabular}{|l|l|r|r|r|}
+\hline
+Model & Condition & HotpotQA & 2Wiki & MuSiQue \\
+\hline
+27B & Recall+LLM & 17286 & 13314 & 33059 \\ % model=qwen3.5:27b condition=recall_llm datasets=hotpotqa,2wiki,musique
+\cline{2-5}
+ & RAG+LLM & 25500 & 18983 & 24279 \\ % model=qwen3.5:27b condition=rag_llm datasets=hotpotqa,2wiki,musique
+\cline{2-5}
+ & Recall+Laya & 32216 & 24109 & 39684 \\ % model=qwen3.5:27b condition=recall_laya datasets=hotpotqa,2wiki,musique
+\cline{2-5}
+ & RAG+Laya & 20212 & 16338 & 22110 \\ % model=qwen3.5:27b condition=rag_laya datasets=hotpotqa,2wiki,musique
+\hline
+9B & Recall+LLM & 5712 & 4324 & 6232 \\ % model=qwen3.5:9b condition=recall_llm datasets=hotpotqa,2wiki,musique
+\cline{2-5}
+ & RAG+LLM & 3530 & 5064 & 3729 \\ % model=qwen3.5:9b condition=rag_llm datasets=hotpotqa,2wiki,musique
+\cline{2-5}
+ & Recall+Laya & 5771 & 5025 & 5397 \\ % model=qwen3.5:9b condition=recall_laya datasets=hotpotqa,2wiki,musique
+\cline{2-5}
+ & RAG+Laya & 2982 & 2502 & 3463 \\ % model=qwen3.5:9b condition=rag_laya datasets=hotpotqa,2wiki,musique
+\hline
+4B & Recall+LLM & 5324 & 4365 & 5657 \\ % model=qwen3.5:4b condition=recall_llm datasets=hotpotqa,2wiki,musique
+\cline{2-5}
+ & RAG+LLM & 3296 & 4175 & 3172 \\ % model=qwen3.5:4b condition=rag_llm datasets=hotpotqa,2wiki,musique
+\cline{2-5}
+ & Recall+Laya & 5145 & 4570 & 4969 \\ % model=qwen3.5:4b condition=recall_laya datasets=hotpotqa,2wiki,musique
+\cline{2-5}
+ & RAG+Laya & 2587 & 2205 & 2749 \\ % model=qwen3.5:4b condition=rag_laya datasets=hotpotqa,2wiki,musique
+\hline
+2B & Recall+LLM & 3452 & 3433 & 3701 \\ % model=qwen3.5:2b condition=recall_llm datasets=hotpotqa,2wiki,musique
+\cline{2-5}
+ & RAG+LLM & 2818 & 3782 & 2146 \\ % model=qwen3.5:2b condition=rag_llm datasets=hotpotqa,2wiki,musique
+\cline{2-5}
+ & Recall+Laya & 2778 & 3149 & 3311 \\ % model=qwen3.5:2b condition=recall_laya datasets=hotpotqa,2wiki,musique
+\cline{2-5}
+ & RAG+Laya & 1966 & 1643 & 2063 \\ % model=qwen3.5:2b condition=rag_laya datasets=hotpotqa,2wiki,musique
+\hline
+0.8B & Recall+LLM & 2237 & 2175 & 2247 \\ % model=qwen3.5:0.8b condition=recall_llm datasets=hotpotqa,2wiki,musique
+\cline{2-5}
+ & RAG+LLM & 2723 & 3302 & 2053 \\ % model=qwen3.5:0.8b condition=rag_llm datasets=hotpotqa,2wiki,musique
+\cline{2-5}
+ & Recall+Laya & 2092 & 1847 & 1999 \\ % model=qwen3.5:0.8b condition=recall_laya datasets=hotpotqa,2wiki,musique
+\cline{2-5}
+ & RAG+Laya & 1935 & 2012 & 1768 \\ % model=qwen3.5:0.8b condition=rag_laya datasets=hotpotqa,2wiki,musique
+\hline
+\end{tabular}

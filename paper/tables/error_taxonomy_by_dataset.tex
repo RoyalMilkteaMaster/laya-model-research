@@ -1,0 +1,65 @@
+\begin{tabular}{|l|l|l|r|r|r|r|r|r|r|}
+\hline
+Dataset & Model & Condition & Inv. & T/O & Err. & Miss & Cov. & Stop & Oth. \\
+\hline
+HotpotQA & 27B & RAG+LLM & 0 & 0 & 0 & 1 & 50 & 14 & 0 \\ % dataset=hotpotqa model=qwen3.5:27b condition=rag_llm
+\cline{3-10}
+ &  & RAG+Laya & 0 & 0 & 0 & 0 & 50 & 28 & 0 \\ % dataset=hotpotqa model=qwen3.5:27b condition=rag_laya
+\cline{2-10}
+ & 9B & RAG+LLM & 1 & 0 & 0 & 4 & 45 & 22 & 0 \\ % dataset=hotpotqa model=qwen3.5:9b condition=rag_llm
+\cline{3-10}
+ &  & RAG+Laya & 0 & 0 & 0 & 2 & 48 & 29 & 0 \\ % dataset=hotpotqa model=qwen3.5:9b condition=rag_laya
+\cline{2-10}
+ & 4B & RAG+LLM & 0 & 0 & 0 & 8 & 58 & 5 & 0 \\ % dataset=hotpotqa model=qwen3.5:4b condition=rag_llm
+\cline{3-10}
+ &  & RAG+Laya & 0 & 0 & 0 & 2 & 50 & 35 & 0 \\ % dataset=hotpotqa model=qwen3.5:4b condition=rag_laya
+\cline{2-10}
+ & 2B & RAG+LLM & 1 & 0 & 0 & 62 & 57 & 0 & 0 \\ % dataset=hotpotqa model=qwen3.5:2b condition=rag_llm
+\cline{3-10}
+ &  & RAG+Laya & 0 & 0 & 0 & 15 & 61 & 29 & 0 \\ % dataset=hotpotqa model=qwen3.5:2b condition=rag_laya
+\cline{2-10}
+ & 0.8B & RAG+LLM & 58 & 0 & 0 & 62 & 34 & 0 & 0 \\ % dataset=hotpotqa model=qwen3.5:0.8b condition=rag_llm
+\cline{3-10}
+ &  & RAG+Laya & 0 & 0 & 0 & 36 & 72 & 31 & 0 \\ % dataset=hotpotqa model=qwen3.5:0.8b condition=rag_laya
+\hline
+2Wiki & 27B & RAG+LLM & 0 & 0 & 0 & 9 & 51 & 3 & 0 \\ % dataset=2wiki model=qwen3.5:27b condition=rag_llm
+\cline{3-10}
+ &  & RAG+Laya & 0 & 0 & 0 & 0 & 20 & 68 & 0 \\ % dataset=2wiki model=qwen3.5:27b condition=rag_laya
+\cline{2-10}
+ & 9B & RAG+LLM & 1 & 0 & 1 & 11 & 51 & 14 & 0 \\ % dataset=2wiki model=qwen3.5:9b condition=rag_llm
+\cline{3-10}
+ &  & RAG+Laya & 0 & 0 & 0 & 0 & 30 & 77 & 0 \\ % dataset=2wiki model=qwen3.5:9b condition=rag_laya
+\cline{2-10}
+ & 4B & RAG+LLM & 0 & 0 & 0 & 14 & 65 & 1 & 0 \\ % dataset=2wiki model=qwen3.5:4b condition=rag_llm
+\cline{3-10}
+ &  & RAG+Laya & 0 & 0 & 0 & 0 & 28 & 83 & 0 \\ % dataset=2wiki model=qwen3.5:4b condition=rag_laya
+\cline{2-10}
+ & 2B & RAG+LLM & 0 & 0 & 0 & 76 & 54 & 0 & 0 \\ % dataset=2wiki model=qwen3.5:2b condition=rag_llm
+\cline{3-10}
+ &  & RAG+Laya & 0 & 0 & 0 & 2 & 35 & 90 & 0 \\ % dataset=2wiki model=qwen3.5:2b condition=rag_laya
+\cline{2-10}
+ & 0.8B & RAG+LLM & 78 & 0 & 0 & 78 & 22 & 1 & 0 \\ % dataset=2wiki model=qwen3.5:0.8b condition=rag_llm
+\cline{3-10}
+ &  & RAG+Laya & 0 & 0 & 0 & 10 & 65 & 86 & 0 \\ % dataset=2wiki model=qwen3.5:0.8b condition=rag_laya
+\hline
+MuSiQue & 27B & RAG+LLM & 1 & 0 & 0 & 62 & 46 & 17 & 0 \\ % dataset=musique model=qwen3.5:27b condition=rag_llm
+\cline{3-10}
+ &  & RAG+Laya & 0 & 0 & 0 & 9 & 30 & 98 & 0 \\ % dataset=musique model=qwen3.5:27b condition=rag_laya
+\cline{2-10}
+ & 9B & RAG+LLM & 1 & 0 & 0 & 74 & 41 & 20 & 0 \\ % dataset=musique model=qwen3.5:9b condition=rag_llm
+\cline{3-10}
+ &  & RAG+Laya & 0 & 0 & 0 & 15 & 29 & 105 & 0 \\ % dataset=musique model=qwen3.5:9b condition=rag_laya
+\cline{2-10}
+ & 4B & RAG+LLM & 0 & 0 & 0 & 83 & 43 & 7 & 0 \\ % dataset=musique model=qwen3.5:4b condition=rag_llm
+\cline{3-10}
+ &  & RAG+Laya & 0 & 0 & 0 & 14 & 30 & 112 & 0 \\ % dataset=musique model=qwen3.5:4b condition=rag_laya
+\cline{2-10}
+ & 2B & RAG+LLM & 0 & 0 & 0 & 177 & 4 & 0 & 0 \\ % dataset=musique model=qwen3.5:2b condition=rag_llm
+\cline{3-10}
+ &  & RAG+Laya & 0 & 0 & 0 & 61 & 16 & 96 & 0 \\ % dataset=musique model=qwen3.5:2b condition=rag_laya
+\cline{2-10}
+ & 0.8B & RAG+LLM & 75 & 0 & 0 & 107 & 11 & 0 & 0 \\ % dataset=musique model=qwen3.5:0.8b condition=rag_llm
+\cline{3-10}
+ &  & RAG+Laya & 0 & 0 & 0 & 62 & 17 & 101 & 0 \\ % dataset=musique model=qwen3.5:0.8b condition=rag_laya
+\hline
+\end{tabular}

@@ -1,0 +1,25 @@
+\begin{tabular}{|l|l|r|r|r|r|r|r|r|}
+\hline
+Model & Condition & Inv. & T/O & Err. & Miss & Cov. & Stop & Oth. \\
+\hline
+27B & RAG+LLM & 1 & 0 & 0 & 72 & 147 & 34 & 0 \\ % dataset=all model=qwen3.5:27b condition=rag_llm
+\cline{2-9}
+ & RAG+Laya & 0 & 0 & 0 & 9 & 100 & 194 & 0 \\ % dataset=all model=qwen3.5:27b condition=rag_laya
+\hline
+9B & RAG+LLM & 3 & 0 & 1 & 89 & 137 & 56 & 0 \\ % dataset=all model=qwen3.5:9b condition=rag_llm
+\cline{2-9}
+ & RAG+Laya & 0 & 0 & 0 & 17 & 107 & 211 & 0 \\ % dataset=all model=qwen3.5:9b condition=rag_laya
+\hline
+4B & RAG+LLM & 0 & 0 & 0 & 105 & 166 & 13 & 0 \\ % dataset=all model=qwen3.5:4b condition=rag_llm
+\cline{2-9}
+ & RAG+Laya & 0 & 0 & 0 & 16 & 108 & 230 & 0 \\ % dataset=all model=qwen3.5:4b condition=rag_laya
+\hline
+2B & RAG+LLM & 1 & 0 & 0 & 315 & 115 & 0 & 0 \\ % dataset=all model=qwen3.5:2b condition=rag_llm
+\cline{2-9}
+ & RAG+Laya & 0 & 0 & 0 & 78 & 112 & 215 & 0 \\ % dataset=all model=qwen3.5:2b condition=rag_laya
+\hline
+0.8B & RAG+LLM & 211 & 0 & 0 & 247 & 67 & 1 & 0 \\ % dataset=all model=qwen3.5:0.8b condition=rag_llm
+\cline{2-9}
+ & RAG+Laya & 0 & 0 & 0 & 108 & 154 & 218 & 0 \\ % dataset=all model=qwen3.5:0.8b condition=rag_laya
+\hline
+\end{tabular}

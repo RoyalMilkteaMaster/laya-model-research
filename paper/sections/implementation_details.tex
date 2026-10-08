@@ -1,0 +1,29 @@
+\subsection{Implementation Details}
+\label{sec:method:impl}
+
+%% [§3.6 ¶1]
+\textbf{Models and Datasets:} We use five instruction-tuned Qwen3.5
+models~\cite{qwen35} (0.8B, 2B, 4B, 9B, and 27B parameters) with thinking disabled,
+an 8192-token context, greedy decoding, and seed 42. All run on one 24\,GB consumer GPU
+(software, checkpoints, and licenses are in Appendix~\ref{sec:appendix}). We evaluate
+HotpotQA~\cite{yang2018hotpotqa} in the distractor setting,
+2WikiMultihopQA~\cite{ho2020twowiki} (2Wiki), and the answerable subset of
+MuSiQue~\cite{trivedi2022musique}. For each dataset, we sample 200 test questions from the
+validation split and the 800/100/100 decision-data questions from the training split.
+No test questions enter decision-layer training, calibration, or held-out evaluation.
+Before the main runs, each model answers 20 fixed tool-calling probe items. We retain
+all models.
+
+%% [§3.6 ¶2]
+\textbf{Retrieval:} Following~\cite{yang2025enhancing}, we embed passages and
+sub-questions with BGE-M3~\cite{chen2024bgem3}, retrieve passages by exact inner-product
+search, and re-score them with the BGE cross-encoder re-ranker~\cite{bgerankerv2m3}.
+Each dataset's corpus combines all supporting and distractor paragraphs from its 200 test
+questions. We remove duplicates and use one chunk per paragraph. The embedder, re-ranker,
+and Laya share the GPU with the generator.
+
+%% [§3.6 ¶3]
+\textbf{Controller:} We fine-tune one shared decision layer for all datasets from the
+multilingual Laya checkpoint~\cite{laya}. Training uses Laya's reinforcement learning
+with strictly proper scoring rules~\cite{laya}. We then fit one temperature per question
+type on the calibration split (details are in Appendix~\ref{sec:appendix}).

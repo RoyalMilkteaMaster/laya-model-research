@@ -1,0 +1,37 @@
+\begin{tabular}{@{}l@{\hspace{4pt}}r@{\hspace{4pt}}r@{\hspace{4pt}}r@{\hspace{4pt}}r@{\hspace{4pt}}r@{\hspace{4pt}}r@{\hspace{4pt}}r@{}}
+\toprule
+ & \multicolumn{2}{c}{Latency (ms)} & VRAM & \multicolumn{2}{c}{Tokens} & & Laya \\
+\cmidrule(lr){2-3}\cmidrule(lr){5-6}
+Condition & p50 & p95 & (MB) & In & Out & Hops & (ms) \\
+\midrule
+\multicolumn{8}{@{}l}{\textit{Qwen3.5-27B}} \\
+Recall+LLM & 7882 & 13314 & 24215 & 2101 & 290 & 3.00 & --- \\ % dataset=2wiki model=qwen3.5:27b condition=recall_llm
+RAG+LLM & 11044 & 18983 & 24357 & 5490 & 136 & 3.19 & --- \\ % dataset=2wiki model=qwen3.5:27b condition=rag_llm
+Recall+Laya & 13780 & 24109 & 23526 & 1544 & 317 & 3.15 & 706.3 \\ % dataset=2wiki model=qwen3.5:27b condition=recall_laya
+RAG+Laya & 11490 & 16338 & 23647 & 2293 & 64 & 2.54 & 377.6 \\ % dataset=2wiki model=qwen3.5:27b condition=rag_laya
+\midrule
+\multicolumn{8}{@{}l}{\textit{Qwen3.5-9B}} \\
+Recall+LLM & 2745 & 4324 & 22092 & 1907 & 228 & 2.82 & --- \\ % dataset=2wiki model=qwen3.5:9b condition=recall_llm
+RAG+LLM & 3256 & 5064 & 22409 & 5385 & 121 & 3.21 & --- \\ % dataset=2wiki model=qwen3.5:9b condition=rag_llm
+Recall+Laya & 2501 & 5025 & 21919 & 1440 & 212 & 3.07 & 20.1 \\ % dataset=2wiki model=qwen3.5:9b condition=recall_laya
+RAG+Laya & 1763 & 2502 & 21871 & 2329 & 64 & 2.55 & 16.3 \\ % dataset=2wiki model=qwen3.5:9b condition=rag_laya
+\midrule
+\multicolumn{8}{@{}l}{\textit{Qwen3.5-4B}} \\
+Recall+LLM & 1642 & 4365 & 19117 & 1700 & 254 & 2.42 & --- \\ % dataset=2wiki model=qwen3.5:4b condition=recall_llm
+RAG+LLM & 2851 & 4175 & 19116 & 6001 & 130 & 3.42 & --- \\ % dataset=2wiki model=qwen3.5:4b condition=rag_llm
+Recall+Laya & 2096 & 4570 & 19111 & 1491 & 306 & 2.99 & 18.2 \\ % dataset=2wiki model=qwen3.5:4b condition=recall_laya
+RAG+Laya & 1452 & 2205 & 19109 & 2280 & 73 & 2.53 & 16.0 \\ % dataset=2wiki model=qwen3.5:4b condition=rag_laya
+\midrule
+\multicolumn{8}{@{}l}{\textit{Qwen3.5-2B}} \\
+Recall+LLM & 2724 & 3433 & 17123 & 3183 & 501 & 3.88 & --- \\ % dataset=2wiki model=qwen3.5:2b condition=recall_llm
+RAG+LLM & 2723 & 3782 & 17124 & 6067 & 157 & 4.00 & --- \\ % dataset=2wiki model=qwen3.5:2b condition=rag_llm
+Recall+Laya & 1335 & 3149 & 17223 & 1325 & 234 & 2.75 & 18.0 \\ % dataset=2wiki model=qwen3.5:2b condition=recall_laya
+RAG+Laya & 859 & 1643 & 17324 & 1885 & 59 & 2.36 & 16.6 \\ % dataset=2wiki model=qwen3.5:2b condition=rag_laya
+\midrule
+\multicolumn{8}{@{}l}{\textit{Qwen3.5-0.8B}} \\
+Recall+LLM & 1443 & 2175 & 14272 & 2044 & 262 & 2.90 & --- \\ % dataset=2wiki model=qwen3.5:0.8b condition=recall_llm
+RAG+LLM & 1947 & 3302 & 14271 & 3459 & 125 & 2.83 & --- \\ % dataset=2wiki model=qwen3.5:0.8b condition=rag_llm
+Recall+Laya & 712 & 1847 & 14256 & 1124 & 167 & 2.62 & 17.4 \\ % dataset=2wiki model=qwen3.5:0.8b condition=recall_laya
+RAG+Laya & 753 & 2012 & 14250 & 1903 & 61 & 2.37 & 16.8 \\ % dataset=2wiki model=qwen3.5:0.8b condition=rag_laya
+\bottomrule
+\end{tabular}

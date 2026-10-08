@@ -1,0 +1,37 @@
+\begin{tabular}{@{}l@{\hspace{4pt}}r@{\hspace{4pt}}r@{\hspace{4pt}}r@{\hspace{4pt}}r@{\hspace{4pt}}r@{\hspace{4pt}}r@{\hspace{4pt}}r@{}}
+\toprule
+ & \multicolumn{2}{c}{Latency (ms)} & VRAM & \multicolumn{2}{c}{Tokens} & & Laya \\
+\cmidrule(lr){2-3}\cmidrule(lr){5-6}
+Condition & p50 & p95 & (MB) & In & Out & Hops & (ms) \\
+\midrule
+\multicolumn{8}{@{}l}{\textit{Qwen3.5-27B}} \\
+Recall+LLM & 9771 & 33059 & 24390 & 2500 & 595 & 3.19 & --- \\ % dataset=musique model=qwen3.5:27b condition=recall_llm
+RAG+LLM & 16217 & 24279 & 24106 & 4736 & 271 & 3.55 & --- \\ % dataset=musique model=qwen3.5:27b condition=rag_llm
+Recall+Laya & 18126 & 39684 & 24330 & 1667 & 439 & 3.18 & 840.2 \\ % dataset=musique model=qwen3.5:27b condition=recall_laya
+RAG+Laya & 13170 & 22110 & 24328 & 2187 & 76 & 2.81 & 361.3 \\ % dataset=musique model=qwen3.5:27b condition=rag_laya
+\midrule
+\multicolumn{8}{@{}l}{\textit{Qwen3.5-9B}} \\
+Recall+LLM & 3000 & 6232 & 21884 & 2096 & 353 & 2.95 & --- \\ % dataset=musique model=qwen3.5:9b condition=recall_llm
+RAG+LLM & 3028 & 3729 & 21884 & 4628 & 177 & 3.52 & --- \\ % dataset=musique model=qwen3.5:9b condition=rag_llm
+Recall+Laya & 2770 & 5397 & 21885 & 1579 & 243 & 3.20 & 19.7 \\ % dataset=musique model=qwen3.5:9b condition=recall_laya
+RAG+Laya & 1731 & 3463 & 22581 & 2324 & 80 & 2.89 & 17.0 \\ % dataset=musique model=qwen3.5:9b condition=rag_laya
+\midrule
+\multicolumn{8}{@{}l}{\textit{Qwen3.5-4B}} \\
+Recall+LLM & 2960 & 5657 & 19110 & 2461 & 414 & 3.08 & --- \\ % dataset=musique model=qwen3.5:4b condition=recall_llm
+RAG+LLM & 2791 & 3172 & 19110 & 5018 & 146 & 3.75 & --- \\ % dataset=musique model=qwen3.5:4b condition=rag_llm
+Recall+Laya & 2445 & 4969 & 19110 & 1734 & 321 & 3.15 & 18.4 \\ % dataset=musique model=qwen3.5:4b condition=recall_laya
+RAG+Laya & 1408 & 2749 & 19108 & 2255 & 80 & 2.88 & 16.5 \\ % dataset=musique model=qwen3.5:4b condition=rag_laya
+\midrule
+\multicolumn{8}{@{}l}{\textit{Qwen3.5-2B}} \\
+Recall+LLM & 2826 & 3701 & 17628 & 3363 & 491 & 3.98 & --- \\ % dataset=musique model=qwen3.5:2b condition=recall_llm
+RAG+LLM & 1818 & 2146 & 17776 & 4275 & 156 & 4.00 & --- \\ % dataset=musique model=qwen3.5:2b condition=rag_llm
+Recall+Laya & 1494 & 3311 & 17976 & 1699 & 290 & 3.10 & 18.3 \\ % dataset=musique model=qwen3.5:2b condition=recall_laya
+RAG+Laya & 963 & 2063 & 18077 & 2325 & 93 & 2.94 & 16.4 \\ % dataset=musique model=qwen3.5:2b condition=rag_laya
+\midrule
+\multicolumn{8}{@{}l}{\textit{Qwen3.5-0.8B}} \\
+Recall+LLM & 1464 & 2247 & 14250 & 1978 & 263 & 2.75 & --- \\ % dataset=musique model=qwen3.5:0.8b condition=recall_llm
+RAG+LLM & 1476 & 2053 & 14251 & 2776 & 139 & 2.89 & --- \\ % dataset=musique model=qwen3.5:0.8b condition=rag_llm
+Recall+Laya & 741 & 1999 & 14249 & 1328 & 193 & 2.73 & 17.2 \\ % dataset=musique model=qwen3.5:0.8b condition=recall_laya
+RAG+Laya & 532 & 1768 & 14249 & 1954 & 86 & 2.69 & 17.5 \\ % dataset=musique model=qwen3.5:0.8b condition=rag_laya
+\bottomrule
+\end{tabular}

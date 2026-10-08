@@ -1,0 +1,171 @@
+\section{Method}
+\label{sec:method}
+
+\subsection{Problem Setting and $2\times2$ Factorial Design}
+\label{sec:method:design}
+
+%% [§3.1 ¶1]
+For a multi-hop question $q$ from dataset $d$, the agent uses an LLM $M$ and corpus
+$\mathcal{C}_d$. Its state $s=(q,\,Q_{\mathrm{sub}},\,E)$ tracks the question,
+sub-questions, and collected evidence. The \emph{evidence source}
+$e\in\{\cond{recall},\cond{rag}\}$ determines where evidence comes from. The \emph{loop
+controller} $c\in\{\cond{llm},\cond{laya}\}$ decides when to stop and answer. Their
+combinations give the four conditions in
+Table~\ref{tab:conditions}.
+
+%% [§3.1 ¶2]
+\begin{table}[t]
+  \centering
+  \caption{The four conditions of the $2\times2$ factorial design. All conditions share
+  the loop of Algorithm~\ref{alg:loop}.}
+    \label{tab:conditions}
+  \small
+  \begin{tabular}{|l|l|l|}
+    \hline
+    Condition & Evidence source $e$ & Controller $c$ \\
+    \hline
+    Recall+LLM  & \cond{recall} (closed-book) & \cond{llm} \\
+    \hline
+    RAG+LLM     & \cond{rag} (retrieve + re-rank) & \cond{llm} \\
+    \hline
+    Recall+Laya & \cond{recall} (closed-book) & \cond{laya} \\
+    \hline
+    RAG+Laya    & \cond{rag} (retrieve + re-rank) & \cond{laya} \\
+    \hline
+  \end{tabular}
+\end{table}
+
+%% [§3.1 ¶3]
+The design separates the two main effects and their interaction. Recall+LLM also uses
+the loop: the LLM asks sub-questions, answers from memory, and decides when to stop.
+It does not give a single-shot closed-book answer. Differences between \cond{llm} and
+\cond{laya} therefore reflect who stops the loop and which tools are available, rather
+than iterative decomposition.
+
+\subsection{Shared Decomposition Loop}
+\label{sec:method:loop}
+
+%% [§3.2 ¶1]
+Algorithm~\ref{alg:loop} shows the shared loop. At each hop, the controller can stop.
+Otherwise, the LLM asks a sub-question and collects evidence through retrieval or recall.
+The LLM answers from this evidence when the controller stops or the loop reaches
+$H_{\max}=4$ hops.
+
+%% [§3.2 ¶2]
+\begin{algorithm}[t]
+  \caption{Decomposition loop shared by the four conditions. Retrieved passages are
+  de-duplicated by passage id and capped at $|E|\le8$.}
+    \label{alg:loop}
+    \raggedright% the wrapped Require line without stretched spaces
+
+  \begin{algorithmic}[1]
+    \Require question $q$; evidence source $e\in\{\cond{recall},\cond{rag}\}$;
+             controller $c\in\{\cond{llm},\cond{laya}\}$; $H_{\max}=4$
+    \State $Q_{\mathrm{sub}}\gets[\,]$; \ $E\gets[\,]$
+    \For{$h=1,\dots,H_{\max}$}
+      \State $d_h\gets\varnothing$ \Comment{no hint unless $c=\cond{laya}$}
+      \If{$c=\cond{laya}$}
+        \State $d_h\gets\mathrm{Laya}(\mathrm{BuildState}(q,Q_{\mathrm{sub}},E))$
+        \IfThen{$d_h.p_{\mathrm{suf}}\ge0.5$}{\textbf{break}} \Comment{enforced}
+      \EndIf
+      \State $q_h\gets M.\mathrm{SubQuestion}(q,Q_{\mathrm{sub}},E,d_h)$
+      \If{$c=\cond{llm}$ \textbf{and} $M$ called \texttt{final\_answer}}
+        \State \textbf{break}
+      \EndIf
+      \State append $q_h$ to $Q_{\mathrm{sub}}$
+      \If{$e=\cond{rag}$}
+        \State $E\gets E\cup\mathrm{Rerank}(q_h,\mathrm{Dense}(q_h,20))[1{:}3]$
+      \Else
+        \State $E\gets E\cup\{M.\mathrm{Recall}(q_h)\}$
+      \EndIf
+    \EndFor
+    \State \Return $M.\mathrm{Answer}(q,E)$
+  \end{algorithmic}
+\end{algorithm}
+
+%% [§3.2 ¶3]
+\textbf{Controller.} When $c=\cond{laya}$, Laya runs at each hop's start. If its
+sufficiency probability is $p_{\mathrm{suf}}\ge0.5$, the loop ends and the LLM must
+answer. Otherwise, its predicted next action and remaining hops guide the LLM, with
+only \texttt{ask\_sub\_question} available. When $c=\cond{llm}$, the LLM can call
+\texttt{ask\_sub\_question} or stop through \texttt{final\_answer}. We count the
+stopping hop, so hops equal decisions. Each
+question has a 300\,s budget.
+
+%% [§3.2 ¶4]
+\textbf{Evidence and failures.} When $e=\cond{rag}$, the dense retriever uses the
+sub-question to find the top-20 passages in $\mathcal{C}_d$. The re-ranker's top-3
+passages are added to $E$. When $e=\cond{recall}$, we add the LLM's closed-book answer
+to the sub-question. A reply without a valid call to an available tool, including a
+plain-text reply, ends the question as \texttt{invalid\_tool}. Exceeding the time budget
+gives \texttt{timeout}. Other failures receive \texttt{error} or \texttt{oom}. All count
+as incorrect.
+
+\subsection{Laya as the Decision Layer}
+\label{sec:method:laya}
+
+%% [§3.3 ¶1]
+At each hop, Laya answers three fixed English questions about the state: whether to stop,
+what to do next, and how much evidence is missing. Each uses a different question type.
+
+%% [§3.3 ¶2]
+\begin{itemize}
+  \item \texttt{sufficient} (\texttt{noul}): is the evidence sufficient for the original question? Laya returns $p_{\mathrm{suf}}=P(\text{true})$.
+  \item \texttt{next\_action} (\texttt{choice}): (A) answer now; (B) form one more
+        sub-question and search; (C) rephrase the query and search again.
+  \item \texttt{remaining\_hops} (\texttt{score}): how many key evidence passages are
+        missing? The options are 0, 1, or 2 (two or more).
+\end{itemize}
+
+%% [§3.3 ¶3]
+\textbf{State construction.} \textsc{BuildState} converts the question, sub-questions,
+and evidence into text within a 900-token limit, keeping only the first two sentences of
+each item. It uses the same format for training and inference.
+
+\subsection{Weak Supervision by State Simulation}
+\label{sec:method:weak}
+
+%% [§3.4 ¶1]
+The datasets lack human labels for these three decisions, but their training splits
+identify the supporting paragraphs. For a training question with gold paragraphs $G$ and
+distractors $D$, we simulate four kinds of states: (1) \emph{question only}, $E=\emptyset$;
+(2) \emph{partial gold}, a non-empty proper subset of $G$ plus 0--2 passages from $D$;
+(3) \emph{all gold}, all of $G$ plus 0--2 passages from $D$, shuffled; and
+(4) \emph{distractors only}.
+
+%% [§3.4 ¶2]
+Let $m=|G\setminus E|$ be the number of gold paragraphs missing from the evidence. The
+labels are
+\begin{align}
+  \texttt{sufficient}      &= \mathbf{1}[m=0], \\
+  \texttt{next\_action}    &=
+    \begin{cases}
+      \text{A} & \text{if } m=0,\\
+      \text{C} & \text{if } E\neq\emptyset \text{ and } E\cap G=\emptyset,\\
+      \text{B} & \text{otherwise},
+    \end{cases} \\
+  \texttt{remaining\_hops} &= \min(m,\,2).
+\end{align}
+Missing gold evidence calls for another decomposition step. If the evidence contains only
+distractors, the query should be rephrased instead.
+
+%% [§3.4 ¶3]
+With a fixed seed, we sample 800, 100, and 100 training questions per dataset for
+decision-layer training, calibration, and held-out evaluation. We target about
+30{,}000 training decisions. Before the main runs, \texttt{sufficient} and
+\texttt{next\_action} must each reach 0.75 accuracy and exceed the zero-shot base
+checkpoint (evaluated only here) by at least 0.20. Mean absolute error (MAE) on
+\texttt{remaining\_hops} must be at most 0.5.
+
+\subsection{Evaluation Protocol}
+\label{sec:method:eval}
+
+%% [§3.5 ¶1]
+Our primary measure is EM after official answer normalisation. We also report token-level
+F1 (for MuSiQue, the maximum over the answer and its aliases). For each question, we record
+end-to-end latency, device-wide peak GPU memory, LLM prompt and output tokens, hops, and
+Laya-call latency. For the decision layer, we report accuracy, Brier score, ECE, and
+latency per decision. EM differences include paired percentile-bootstrap 95\% CIs based
+on 10{,}000 resamples of the 200 questions.
+
+\input{sections/implementation_details}

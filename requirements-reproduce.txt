@@ -1,0 +1,4 @@
+# CPU-only result reproduction. No torch, GPU, model download, or API key.
+numpy==2.5.3
+pandas==3.0.6
+matplotlib==3.11.2
