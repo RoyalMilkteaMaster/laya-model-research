@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Please cite this research artifact and the accompanying manuscript when using the code or results. Also cite the upstream datasets and Laya."
+message: "Please cite the paper and this code repository when using the implementation or results. Also cite the upstream datasets and Laya."
 type: software
 title: "Laya Multi-Hop QA: Code and Reproducible Results"
 authors:
@@ -9,7 +9,7 @@ authors:
     given-names: Te-Lun
 repository-code: "https://github.com/RoyalMilkteaMaster/laya-multihop-qa"
 url: "https://github.com/RoyalMilkteaMaster/laya-multihop-qa"
-version: 1.0.0
+version: 1.0.1
 date-released: 2026-10-09
 license: MIT
 keywords:

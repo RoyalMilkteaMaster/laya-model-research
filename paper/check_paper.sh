@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Mechanical checks for the paper draft.
+# Mechanical checks for the paper.
 #   bash paper/check_paper.sh            # static checks only
 #   bash paper/check_paper.sh --compile  # also compile with tectonic into a temp dir
 #                                         # (CHECK_OUTDIR=<dir> to choose the output dir;

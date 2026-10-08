@@ -14,7 +14,7 @@ tutorial, personal application documents, machine configuration, or development 
   on resume; it does not change the question-answering algorithm.
 - The exported source includes subsequent reporting/figure-label fixes. The agent loop,
   retrieval, controller training, and answer scoring retain the research implementation.
-- The manuscript includes the author's existing later wording/layout edits from the
+- The paper includes the author's existing later wording/layout edits from the
   source working tree. They were not rewritten as part of this publication.
 - Full original per-question JSONL files, including failed attempts before retries, are
   copied byte-for-byte. Dataset JSONL and preparation manifests are also copied unchanged.
@@ -67,10 +67,19 @@ controller-evaluation report. See [REPRODUCING.md](REPRODUCING.md) for those dis
 
 ## Adding the repository to the paper
 
-Suggested availability statement (the manuscript itself is unchanged):
+Suggested availability statement (the paper itself is unchanged):
 
 > Code, frozen evaluation inputs, per-question outputs, and scripts for reproducing the
 > reported tables and figures are available at
 > https://github.com/RoyalMilkteaMaster/laya-multihop-qa.
 
-Use an immutable release tag or commit when submitting the final manuscript.
+Use an immutable release tag or commit when citing the repository in the paper.
+
+## Version 1.0.1: paper narrative and presentation
+
+The Chinese and English introductions now explain the progression from multi-hop
+control failures to the generator/controller division, factorial experiment, weak
+supervision, scale-dependent results, and error analysis. All current documentation
+refers to the work as a paper. An additional effect plot presents the archived paired
+confidence intervals across all three datasets. The underlying experiment code,
+recorded outputs, reference tables, and paper PDF are unchanged.

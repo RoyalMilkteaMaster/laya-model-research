@@ -6,6 +6,29 @@ Source run: `main-20260930`. Every row below comes from
 All configurations contain 200 final records; failed answers remain in the denominator.
 The [verification report](verification.json) records the publication reproduction check.
 
+## Reading the findings / 結果導讀
+
+The [paper's research narrative](../README.en.md) follows three questions: what changes
+accuracy, what changes cost, and how those effects depend on model scale. Read the
+results in that order:
+
+1. **Evidence source:** compare Recall + LLM with RAG + LLM to assess the contribution
+   of retrieval within the shared loop.
+2. **Controller and scale:** compare RAG + LLM with RAG + Laya at each model size.
+   The plot below shows the effect and its paired 95% interval; a hollow point includes zero.
+3. **Cost and failure location:** read tokens, hops, and latency alongside the error
+   taxonomy. Reduced computation can coincide with stopping before supporting evidence arrives.
+
+中文閱讀順序：先看外部證據帶來多少改善，再看相同 RAG 下更換控制者的影響，最後用成本與錯誤分類解釋取捨。
+0.8B 的正向效果在三個資料集的信賴區間均排除零；2B 僅 HotpotQA 排除零。4B–27B 的點估計皆為負，九個區間中七個排除零。
+
+![Controller effects and paired 95% confidence intervals](figures/controller_effect_by_scale.png)
+
+This additional overview is generated from the existing `bootstrap_ci.csv` and checked
+against `summary.csv` by [plot_controller_effect.py](../scripts/plot_controller_effect.py).
+Run `python scripts/plot_controller_effect.py` from the repository root; PNG and PDF
+outputs are written to `results/figures/`. The five original paper figures remain below.
+
 ## Paper-to-data map
 
 | Paper item | Artifact | Source / generator |
@@ -24,7 +47,7 @@ The [verification report](verification.json) records the publication reproductio
 
 Original full-precision answer-level measurements are in the JSONL records; CSV columns
 are rounded as documented in [DATA.md](../docs/DATA.md). The 13 generated LaTeX files
-also include legacy standalone tables; the manuscript uses the panels listed above.
+also include legacy standalone tables; the paper uses the panels listed above.
 
 ## All 60 configurations
 
@@ -102,4 +125,3 @@ also include legacy standalone tables; the manuscript uses the panels listed abo
 ![latency_vs_size](figures/latency_vs_size.png)
 
 ![hops_distribution](figures/hops_distribution.png)
-

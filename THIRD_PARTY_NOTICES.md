@@ -1,10 +1,10 @@
 # License scope and third-party notices
 
 The root MIT license applies to original benchmark/analysis/publication code and
-repository documentation. It does not relicense the research manuscript, third-party
+repository documentation. It does not relicense the paper, third-party
 datasets, copied passages, pretrained models, or third-party paper-format files.
-The manuscript and its translation remain with their authors; no additional
-manuscript reuse license is granted here. Factual experimental measurements are
+The paper and its translation remain with their authors; no additional
+paper reuse license is granted here. Factual experimental measurements are
 published with source attribution.
 
 ## Data

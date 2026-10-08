@@ -32,6 +32,11 @@ quality report is an input to Table 2: individual held-out controller prediction
 not archived, so this route does **not** independently recompute that report's accuracy,
 Brier score, or ECE. Run `train-laya --eval-only` after training to evaluate the controller.
 
+The README's additional cross-dataset effect overview is generated separately from the
+same archived CSVs: `python scripts/plot_controller_effect.py`. It verifies all 15
+RAG-controller effect estimates against `summary.csv` and writes PNG/PDF versions to
+`results/figures/`. This is a presentation of existing results, not a sixth original paper figure.
+
 ## 2. Run the models again (Linux / WSL2, NVIDIA GPU)
 
 The original machine used an RTX 4090 with 24 GB VRAM, Ubuntu on WSL2, Python 3.12.14,

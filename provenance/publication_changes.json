@@ -17,7 +17,7 @@
   {
     "path": "paper/README.md",
     "source_sha256": "ce692196e29afd280d753d51670d8cb589d048c0f640c1341a92abd05bb67ca5",
-    "public_sha256": "1fe436171be6a05ff98b8dbb35242743c2295b73fa939b1ef12df71aadd5d173"
+    "public_sha256": "f6aacf12a5159566fe26b143f67a7940368bab3a36fa9ae099ebf1fb328077a2"
   },
   {
     "path": "paper/analysis/bootstrap_ci.py",
@@ -33,5 +33,10 @@
     "path": "paper/analysis/merge_tables.py",
     "source_sha256": "252251c89042a4650b514db8b52b111e8d1143c55880e8331fc99f1156589e49",
     "public_sha256": "2a5b352157aa62fae904557e0447a9d6bb78c07a14d77b9adcacb421e4ee5a00"
+  },
+  {
+    "path": "paper/check_paper.sh",
+    "source_sha256": "3c5490d2042725f96006880f6b7920e0f30c84982236c912c462a63d6f417a47",
+    "public_sha256": "96cf50001acb04ab873515a6e8b425ecd3fc7694ed8d19cbfe84e304a5ea3c3b"
   }
 ]
